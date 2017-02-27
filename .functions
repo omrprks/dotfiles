@@ -1,0 +1,19 @@
+function history%() {
+	history | \
+	awk '{ CMD[$2]++; count++; } END { \
+		for(a in CMD) print CMD[a] " " CMD[a] / count * 100 "% " a; \
+	}' | \
+	grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10;
+}
+
+function parse_git_branch() {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/';
+}
+
+function battery() {
+	printf "Health: ";
+	cat /sys/class/power_supply/battery/health
+	printf "Status: ";
+	cat /sys/class/power_supply/battery/status;
+	printf "Capacity: %s%%\n" `cat /sys/class/power_supply/battery/capacity`;
+}

@@ -1,0 +1,6 @@
+export DISPLAY=:0.0
+# Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin"
+# Morgana Le Faye API Keys
+export set MORGANAAPPID="ba448c9f-4c86-4d0f-bab2-b300c172f638"
+export set MORGANAAPPPW="78ir4MRPvharhqGKjsLit6J"

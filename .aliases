@@ -1,0 +1,82 @@
+alias reload="source ~/.bash_profile"
+
+alias update='sudo apt update -y && sudo apt upgrade -y'
+
+alias c='clear'
+alias r='reset'
+alias h='history'
+
+if [ -x /usr/bin/dircolors ]; then
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	alias ls='ls --color=auto'
+	alias dir='dir --color=auto'
+	alias vdir='vdir --color=auto'
+
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
+fi
+
+alias l='ls -CF'
+alias ls='ls -GFp --color=auto'
+# alias lsd=$'ls -F | grep --color=never \'/$\' | awk \'{ printf("%s ", $1); }\' && echo'
+alias lsd=$'echo -n $(ls | grep \'/$\') && echo'
+alias ll='ls -alF'
+alias la='ls -A'
+alias lla='ls -la'
+alias l.='ls -d .*'
+alias lahtr='ls -lahtr'
+
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../'
+
+# Git
+alias gs='git status'
+alias ga='git add -A'
+alias gb='git branch'
+alias gc=$'git commit -m \'$1\''
+alias gp='git push'
+alias gpull='git pull'
+alias gt=$'git tag \'$1\''
+alias gpt='git push --tags'
+alias co='git checkout'
+
+# Date & Time
+alias now='date +"%T %d-%m-%Y"'
+alias now-time='date +"%T"'
+alias now-date='date +"%d-%m-%Y"'
+
+# IP
+alias ip-public="curl http://ipecho.net/plain; echo"
+alias ip-private="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
+
+# Ports
+alias ports="netstat -lnt | awk 'NR>2{ print $4 }' | grep -E '(0.0.0.0:|:::)' | sed 's/.*://' | sort -n | uniq"
+alias ports-v4="netstat -lnt | awk 'NR>2{ print $4 }' | grep -E '0.0.0.0:' | sed 's/.*://' | sort -n | uniq"
+alias ports-v6="netstat -lnt | awk 'NR>2{ print $4 }' | grep -E ':::' | sed 's/.*://' | sort -n | uniq"
+alias ports-local="netstat -lnt | awk 'NR>2{ print $4 }' | grep -E '(127.0.0.1:|::1:)' | sed 's/.*://' | sort -n | uniq"
+
+# alias battery="printf 'Health: $(cat /sys/class/power_supply/battery/health)\nStatus: $(cat /sys/class/power_supply/battery/status)\nCapacity: $(cat /sys/class/power_supply/battery/capacity)%%\n'"
+alias header='curl -I'
+
+alias psg='ps aux | grep -v grep | grep -i -e VSZ -e'
+
+alias histg='history | grep'
+
+alias cling="cling --nologo"
+
+# Overrides
+alias wget="wget -c"
+alias bc="bc -l"
+alias mkdir="mkdir -pv"
+
+# Windows Specific
+alias cmd='/mnt/c/Windows/System32/cmd.exe /c'
+alias code='cmd code'
+alias devenv='/mnt/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio\ 14.0/Common7/IDE/devenv.exe &'
+alias x64dbg='/mnt/c/Program\ Files/x64dbg/x64/x64dbg.exe &'
+alias e='explorer.exe'
+alias e.='explorer.exe .'
