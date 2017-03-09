@@ -1,6 +1,30 @@
 export DISPLAY=:0.0
-# Add RVM to PATH for scripting
-export PATH="$PATH:$HOME/.rvm/bin"
-# Morgana Le Faye API Keys
-export set MORGANAAPPID="ba448c9f-4c86-4d0f-bab2-b300c172f638"
-export set MORGANAAPPPW="78ir4MRPvharhqGKjsLit6J"
+
+### Language ###
+export LANG=en_US.UTF-8
+
+### Compilation Flags ###
+export ARCHFLAGS="-arch x86_64"
+
+### SSH ###
+export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+### SSH Editor ###
+if [[ -n $SSH_CONNECTION ]]; then
+	export EDITOR='vim'
+else
+	export EDITOR='mvim'
+fi
+
+### Ruby ###
+RBENV_VER=$(egrep "^\s+2\.\d\.\d+$" <(rbenv install -l) | tail -1)
+export GEM_HOME=$HOME/.rbenv/versions/$RBENV_VER/lib/ruby/gems/$RBENV_VER
+export GEM_PATH=$HOME/.rbenv/versions/$RBENV_VER/lib/ruby/gems/$RBENV_VER
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+### SQLite ###
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
+
+export PATH=$PATH:$HOME/.local/bin
+export PATH="/usr/local/opt/apr/bin:$PATH"
+export PATH="/usr/local/opt/apr-util/bin:$PATH"

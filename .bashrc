@@ -1,8 +1,3 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
-# If not running interactively, don't do anything
 case $- in
 	*i*) ;;
 	*) return;;
@@ -110,3 +105,6 @@ if ! shopt -oq posix; then
 fi
 
 LS_COLORS="ow=01;36;40" && export LS_COLORS
+
+PATH=/usr/local/bin:/usr/local/sbin:$PATH
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi

@@ -8,19 +8,24 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/color
+~MSle0~/brew
 
 # Command Line History (newest to oldest):
 :wq!
-:wq
 :q!
-:Wq!
-:Q!
-:.q!
 :w!
+:Wq!
+:q
+:wq
 
 # Search String History (newest to oldest):
-?/color
+?/brew
+?/vhost
+?/vhost_alias
+?/vhosts_alias
+?/Directory
+?/php
+? \<PS1\>
 
 # Expression History (newest to oldest):
 
@@ -30,742 +35,600 @@
 
 # Registers:
 ""1	LINE	0
-		int aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa;
+	gemhome: /usr/local/rubygems
 "2	LINE	0
-	alias lsd='ls -F | grep --color=never "/$" | awk "{ printf(\"%s \", $1); }" && echo'
+	
 "3	LINE	0
-	
+	# it'll load a random theme each time that oh-my-zsh is loaded.
 "4	LINE	0
-	
+	# Set name of the theme to load. Optionally, if you set this to "random"
 "5	LINE	0
-	
+	# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 "6	LINE	0
-	
+	ZSH_THEME="agnoster"
 "7	LINE	0
-	
+	ZSH_THEME="robbyruss`ell"
 "8	LINE	0
 	
 "9	LINE	0
-	/tsrc/main.rb
+		ui = auto
 "-	CHAR	0
-	i
+	e
 
 # File marks:
-'0  18  24  ~/.functions
-'1  62  1  ~/.aliases
-'2  14  17  ~/.functions
-'3  19  0  ~/.functions
-'4  63  0  ~/.aliases
-'5  6  6  ~/.aliases
-'6  72  0  ~/.aliases
-'7  51  0  ~/.aliases
-'8  53  0  ~/.aliases
-'9  1  0  /mnt/d/dev/first/src/makefile
+'0  1  24  ~/.gemrc
+'1  1  27  ~/.gemrc
+'2  40  2  ~/dev/tools/gitignore
+'3  7  14  ~/.zshrc
+'4  10  0  ~/.gitconfig
+'5  1  0  ~/.gitconfig
+'6  3  26  ~/.gitconfig
+'7  10  0  /private/etc/hosts
+'8  24  0  ~/.bash_profile
+'9  22  0  ~/.bash_profile
 
 # Jumplist (newest first):
--'  18  24  ~/.functions
--'  1  0  ~/.functions
--'  62  1  ~/.aliases
--'  1  0  ~/.aliases
--'  14  17  ~/.functions
--'  19  0  ~/.functions
--'  63  0  ~/.aliases
--'  6  6  ~/.aliases
--'  72  0  ~/.aliases
--'  51  0  ~/.aliases
--'  53  0  ~/.aliases
--'  1  0  /mnt/d/dev/first/src/makefile
--'  1  0  /mnt/d/.passwd
--'  70  35  ~/.aliases
--'  17  1  /mnt/c/Users/omrprks/Desktop/test/clang-test.cc
--'  1  0  /mnt/c/Users/omrprks/Desktop/test/clang-test.cc
--'  43  22  ~/.aliases
--'  41  11  ~/.aliases
--'  37  25  ~/.aliases
--'  36  23  ~/.aliases
--'  21  36  ~/.aliases
--'  20  86  ~/.aliases
--'  22  39  ~/.aliases
--'  3  0  ~/.exports
--'  1  0  ~/.exports
+-'  1  24  ~/.gemrc
+-'  40  2  ~/dev/tools/gitignore
+-'  1  0  ~/dev/tools/gitignore
+-'  7  14  ~/.zshrc
+-'  1  0  ~/.zshrc
+-'  10  0  ~/.gitconfig
+-'  1  0  ~/.gitconfig
+-'  3  26  ~/.gitconfig
+-'  10  0  /private/etc/hosts
+-'  1  0  /private/etc/hosts
+-'  24  0  ~/.bash_profile
 -'  1  0  ~/.bash_profile
--'  88  0  ~/.bashrc
+-'  22  0  ~/.bash_profile
+-'  9  16  ~/dev/raketest/Rakefile
+-'  1  0  ~/dev/raketest/Rakefile
+-'  15  0  ~/dev/raketest/Rakefile
+-'  49  20  ~/dev/raketest/Rakefile
+-'  7  0  ~/dev/raketest/main.cc
+-'  1  0  ~/dev/raketest/main.cc
+-'  21  13  ~/.aliases
+-'  10  0  ~/.aliases
+-'  1  0  ~/.aliases
+-'  11  0  /private/etc/hosts
+-'  1  34  ~/.ssh/config
+-'  1  0  /private/etc/resolv.conf
+-'  1  0  ~/Desktop/tko.sh
+-'  1  0  ~/.functions
 -'  1  0  ~/.bashrc
--'  1  0  /mnt/d/dev/first/.git/MERGE_MSG
--'  2  0  /mnt/d/dev/first/.git/COMMIT_EDITMSG
--'  1  0  /mnt/d/dev/first/.git/COMMIT_EDITMSG
--'  137  48  ~/.bash_profile
--'  1  0  ~/.profile
--'  1  2  /mnt/d/dev/gitignore.sh
--'  17  2  /mnt/d/dev/gitignore.sh
--'  2  47  /mnt/d/dev/bash_gitignore/gitignore.sh
--'  1  0  /mnt/d/dev/bash_gitignore/gitignore.sh
--'  3  0  /mnt/d/dev/bash_gitignore/gitignore.sh
--'  5  0  /mnt/d/dev/haxe_test/src/main.hx
--'  1  0  /mnt/d/dev/haxe_test/src/main.hx
--'  60  24  ~/.aliases
--'  7  16  /mnt/d/dev/ruby_adventure/src/main.rb
--'  1  0  /mnt/d/dev/ruby_adventure/src/main.rb
--'  2  1  /mnt/d/dev/ruby_adventure/makefile
--'  1  0  /mnt/d/dev/ruby_adventure/makefile
--'  14  21  /usr/bin/winsdl2_ttf-config
--'  1  0  /usr/bin/winsdl2_ttf-config
--'  43  12  /usr/bin/winsdl2_ttf-config
--'  3  31  /mnt/d/dev/hackerrank/bash/personalized_echo.sh
--'  1  0  /mnt/d/dev/hackerrank/bash/personalized_echo.sh
--'  1  14  /mnt/d/dev/hackerrank/bash/looping_skipping.sh
--'  1  0  /mnt/d/dev/hackerrank/bash/echo.sh
--'  3  8  /mnt/d/dev/hackerrank/bash/echo.sh
--'  4  16  /mnt/d/dev/kidzcabin/README.md
--'  1  0  /mnt/d/dev/kidzcabin/README.md
--'  133  65  ~/.bash_profile
--'  1  41  /mnt/d/dev/ruby_adventure/inc/player.rb
--'  5  3  /mnt/d/dev/ruby_adventure/main.rb
--'  1  0  /mnt/d/dev/ruby_adventure/main.rb
--'  17  0  /mnt/d/dev/ruby_adventure/inc/player.rb
--'  3  14  /mnt/d/dev/ruby_adventure/main.rb
--'  19  11  /mnt/d/dev/ruby_adventure/inc/player.rb
--'  5  41  /mnt/d/dev/hackerrank/ruby/arrays_hashes/hash_add_delete_select.rb
--'  1  0  /mnt/d/dev/hackerrank/ruby/arrays_hashes/hash_add_delete_select.rb
--'  3  19  /mnt/d/dev/hackerrank/ruby/arrays_hashes/hash_each.rb
--'  1  0  /mnt/d/dev/hackerrank/ruby/arrays_hashes/hash_each.rb
--'  5  48  /mnt/d/dev/hackerrank/ruby/arrays_hashes/hash_initialization.rb
--'  1  0  /mnt/d/dev/hackerrank/ruby/arrays_hashes/hash_initialization.rb
--'  6  47  /mnt/d/dev/hackerrank/ruby/arrays_hashes/array_selection.rb
--'  1  0  /mnt/d/dev/hackerrank/ruby/arrays_hashes/array_selection.rb
--'  6  43  /mnt/d/dev/hackerrank/ruby/arrays_hashes/deletion.rb
--'  1  0  /mnt/d/dev/hackerrank/ruby/arrays_hashes/deletion.rb
--'  6  65  /mnt/d/dev/hackerrank/ruby/arrays_hashes/addition.rb
--'  1  0  /mnt/d/dev/hackerrank/ruby/arrays_hashes/addition.rb
--'  7  33  /mnt/d/dev/hackerrank/ruby/arrays_hashes/index_2.rb
--'  1  0  /mnt/d/dev/hackerrank/ruby/arrays_hashes/index_2.rb
--'  6  83  /mnt/d/dev/hackerrank/ruby/arrays_hashes/index_1.rb
--'  1  0  /mnt/d/dev/hackerrank/ruby/arrays_hashes/index_1.rb
--'  22  2  /mnt/d/dev/hackerrank/ruby/arrays_hashes/index_1.rb
--'  5  17  /mnt/d/dev/hackerrank/ruby/arrays_hashes/initialization.rb
--'  1  0  /mnt/d/dev/hackerrank/ruby/arrays_hashes/initialization.rb
--'  10  2  /mnt/d/dev/hackerrank/ruby/control_structures/case.rb
--'  1  0  /mnt/d/dev/hackerrank/ruby/control_structures/case.rb
--'  3  21  /mnt/d/dev/hackerrank/ruby/control_structures/infinite_loop.rb
--'  1  0  /mnt/d/dev/hackerrank/ruby/control_structures/infinite_loop.rb
--'  3  33  /mnt/d/dev/hackerrank/ruby/control_structures/until.rb
--'  1  0  /mnt/d/dev/hackerrank/ruby/control_structures/until.rb
--'  5  2  /mnt/d/dev/hackerrank/ruby/control_structures/unless.rb
--'  1  0  /mnt/d/dev/hackerrank/ruby/control_structures/unless.rb
--'  5  2  /mnt/d/dev/hackerrank/ruby/control_structures/each.rb
--'  1  0  /mnt/d/dev/hackerrank/ruby/control_structures/each.rb
--'  3  0  /mnt/d/dev/hackerrank/ruby/introduction/object_methods.rb
--'  1  0  /mnt/d/dev/hackerrank/ruby/introduction/object_methods.rb
--'  3  13  /mnt/d/dev/hackerrank/ruby/introduction/object_method_parameters.rb
--'  1  0  /mnt/d/dev/hackerrank/ruby/introduction/object_method_parameters.rb
--'  3  9  /mnt/d/dev/hackerrank/ruby/introduction/everything_is_an_object.rb
--'  1  0  /mnt/d/dev/hackerrank/ruby/introduction/everything_is_an_object.rb
+-'  1  0  ~/www/sites/kidzcabin/wwwroot/contact.html
+-'  61  0  ~/dev/test/src/app.cc
+-'  1  0  ~/dev/test/src/app.cc
+-'  1  0  ~/dev/test/src/app.h
+-'  62  0  ~/dev/test/src/graphics.cc
+-'  1  0  ~/dev/test/src/graphics.cc
+-'  1  0  ~/dev/test/src/graphics.h
+-'  1  0  ~/dev/test/src/window.h
+-'  70  0  ~/dev/test/src/tools.cc
+-'  1  0  ~/dev/test/src/tools.cc
+-'  14  0  ~/dev/test/src/tools.cc
+-'  1  0  ~/dev/test/src/tools.h
+-'  1  0  ~/dev/test/src/input.cc
+-'  1  0  ~/dev/test/src/input.h
+-'  1  0  /private/etc/hostconfig
+-'  32  0  ~/.aliases
+-'  7  0  ~/.functions
+-'  38  46  ~/.aliases
+-'  27  24  ~/.aliases
+-'  24  15  ~/.aliases
+-'  16  23  ~/.aliases
+-'  1  0  ~/Desktop/beatemup/src/app.h
+-'  1  0  ~/Desktop/beatemup/src/main.cc
+-'  9  0  ~/Desktop/beatemup/src/main.cc
+-'  7  43  ~/Desktop/beatemup/src/makefile
+-'  1  0  ~/Desktop/beatemup/src/makefile
+-'  7  30  ~/Desktop/beatemup/src/main.cc
+-'  8  22  ~/Desktop/beatemup/README.md
+-'  1  0  ~/Desktop/beatemup/README.md
+-'  3  23  ~/Desktop/beatemup/README.md
+-'  5  0  ~/Desktop/SDLOpenGL/src/makefile
+-'  1  0  ~/Desktop/SDLOpenGL/src/makefile
+-'  13  12  ~/.aliases
+-'  6  0  ~/.bash_profile
+-'  1  0  ~/Desktop/pi_digits.cc
+-'  3  8  ~/.bash_profile
+-'  5  19  ~/.bash_profile
+-'  7  8  ~/.bash_profile
+-'  4  9  ~/.bash_profile
+-'  7  0  /private/etc/bashrc
+-'  1  0  /private/etc/bashrc
+-'  8  13  ~/.bash_profile
+-'  9  15  ~/.aliases
+-'  21  0  ~/.bash_profile
+-'  11  17  ~/.aliases
+-'  12  0  ~/.bash_profile
+-'  1  0  /private/etc/my.cnf
+-'  6  19  /private/etc/paths
+-'  1  0  /private/etc/paths
+-'  5  4  /private/etc/paths
+-'  16  0  /private/etc/apache2/extra/httpd-vhosts.conf
+-'  1  0  /private/etc/apache2/extra/httpd-vhosts.conf
+-'  45  39  /private/etc/apache2/extra/httpd-vhosts.conf
+-'  24  19  /private/etc/apache2/extra/httpd-vhosts.conf
+-'  1  0  ~/www/sites/httpd-vhosts.conf
+-'  49  0  /private/etc/apache2/extra/httpd-vhosts.conf
+-'  43  29  /private/etc/apache2/extra/httpd-vhosts.conf
+-'  7  12  /www/sites/al-emira/index.php
+-'  1  0  /www/sites/al-emira/index.php
+-'  4  23  /www/sites/al-emira/index.php
+-'  58  18  /private/etc/apache2/extra/httpd-vhosts.conf
+-'  29  0  /private/etc/apache2/extra/httpd-vhosts.conf
+-'  74  0  /private/etc/apache2/extra/httpd-vhosts.conf
+-'  70  41  /private/etc/apache2/extra/httpd-vhosts.conf
+-'  499  0  /private/etc/apache2/httpd.conf
+-'  162  0  /private/etc/apache2/httpd.conf
+-'  160  0  /private/etc/apache2/httpd.conf
+-'  222  0  /private/etc/apache2/httpd.conf
 
 # History of marks within files (newest to oldest):
 
-> ~/.functions
-	"	18	24
-	^	18	25
-	.	18	24
-	+	7	0
-	+	15	43
-	+	19	0
-	+	14	7
-	+	18	68
-	+	18	19
-	+	16	17
-	+	14	17
-	+	18	59
-	+	18	24
-
-> ~/.aliases
-	"	62	1
-	^	62	2
-	.	62	1
-	+	50	46
-	+	22	54
-	+	5	0
-	+	5	0
-	+	56	20
-	+	59	100
-	+	60	24
-	+	3	0
-	+	52	27
-	+	59	0
-	+	60	0
-	+	58	0
-	+	57	0
-	+	61	0
-	+	22	75
-	+	22	0
-	+	20	82
-	+	20	1
-	+	21	36
-	+	34	13
-	+	43	0
-	+	39	10
-	+	40	6
-	+	41	9
-	+	38	12
-	+	37	12
-	+	35	20
-	+	34	5
-	+	36	18
-	+	37	25
-	+	36	19
-	+	37	8
-	+	38	31
-	+	39	8
-	+	40	21
-	+	41	25
-	+	42	10
-	+	43	22
-	+	70	35
-	+	6	6
-	+	62	32
-	+	62	189
-	+	62	1
-
-> /mnt/d/dev/first/src/makefile
-	"	1	0
-
-> /mnt/d/.passwd
-	"	1	0
-	^	1	14
-	.	1	13
-	+	1	13
-
-> /mnt/c/Users/omrprks/Desktop/test/clang-test.cc
-	"	17	1
-	.	17	0
-	+	17	0
-
-> ~/.exports
-	"	3	0
-	^	3	0
-	.	3	0
-	+	1	23
-	+	1	8
-	+	1	42
-	+	4	0
-	+	4	0
-	+	4	0
-	+	4	0
-	+	4	0
-	+	2	0
-	+	1	19
-	+	2	0
-	+	4	0
-	+	4	0
-	+	1	1
-	+	4	0
-	+	5	0
-	+	3	0
-
-> ~/.bash_profile
-	"	1	0
-	^	137	49
-	.	137	48
-	+	1	0
-	+	1	0
-	+	1	9
-	+	1	54
-	+	133	37
-	+	136	62
-	+	137	48
-
-> ~/.bashrc
-	"	88	0
-	^	88	1
-	.	88	0
-	+	61	7
-	+	67	0
-	+	66	0
-	+	65	0
-	+	64	0
-	+	63	0
-	+	62	0
-	+	60	2
-	+	56	16
-	+	55	2
-	+	56	0
-	+	55	0
-	+	82	6
-	+	88	12
-	+	111	9
-	+	117	8
-	+	111	0
-	+	111	0
-	+	111	0
-	+	118	47
-	+	130	22
-	+	82	1
-	+	83	0
-	+	84	0
-	+	85	0
-	+	86	0
-	+	87	0
-	+	88	0
-
-> /mnt/d/dev/first/.git/MERGE_MSG
-	"	1	0
-
-> /mnt/d/dev/first/.git/COMMIT_EDITMSG
-	"	2	0
-
-> ~/.profile
-	"	1	0
-
-> /mnt/d/dev/gitignore.sh
-	"	1	2
-	^	6	3
-	.	6	0
-	+	17	2
-	+	6	0
-
-> /mnt/d/dev/bash_gitignore/gitignore.sh
-	"	2	47
-	^	2	48
-	.	2	33
-	+	1	30
-	+	2	33
-
-> /mnt/d/dev/haxe_test/src/main.hx
-	"	5	0
-	^	5	1
-	.	5	0
-	+	5	0
-
-> /mnt/d/dev/ruby_adventure/src/main.rb
-	"	7	16
-	^	7	17
-	.	7	16
-	+	7	16
-
-> /mnt/d/dev/ruby_adventure/makefile
-	"	2	1
-	^	2	12
-	.	3	0
-	+	2	11
-	+	3	0
-
-> /usr/bin/winsdl2_ttf-config
-	"	14	21
-	^	14	22
-	.	49	28
-	+	6	35
-	+	7	28
-	+	43	12
-	+	53	28
-	+	49	28
-
-> /mnt/d/dev/hackerrank/bash/personalized_echo.sh
-	"	3	31
-	^	3	32
-	.	3	16
-	+	3	16
-
-> /mnt/d/dev/hackerrank/bash/looping_skipping.sh
-	"	1	14
-	^	1	15
-	.	1	14
-	+	1	14
-
-> /mnt/d/dev/hackerrank/bash/echo.sh
-	"	1	0
-	^	3	9
-	.	3	0
-	+	3	0
-
-> /mnt/d/dev/kidzcabin/README.md
-	"	4	16
-	^	4	17
-	.	4	16
-	+	4	16
-
-> /mnt/d/dev/ruby_adventure/inc/player.rb
-	"	1	41
-	^	1	42
-	.	1	42
-	+	21	2
-	+	15	22
-	+	11	0
-	+	10	13
-	+	7	13
-	+	11	9
-	+	12	9
-	+	12	16
-	+	20	3
-	+	19	11
-	+	2	0
-	+	1	19
-	+	16	9
-	+	17	0
-	+	1	42
-
-> /mnt/d/dev/ruby_adventure/main.rb
-	"	5	3
-	^	5	4
-	.	5	3
-	+	5	17
-	+	3	14
-	+	5	3
-
-> /mnt/d/dev/hackerrank/ruby/arrays_hashes/hash_add_delete_select.rb
-	"	5	41
-	^	5	42
-	.	5	40
-	+	5	40
-
-> /mnt/d/dev/hackerrank/ruby/arrays_hashes/hash_each.rb
-	"	3	19
-	^	3	20
-	.	3	20
-	+	3	59
-	+	3	59
-	+	3	20
-
-> /mnt/d/dev/hackerrank/ruby/arrays_hashes/hash_initialization.rb
-	"	5	48
-	^	5	49
-	.	5	47
-	+	5	47
-
-> /mnt/d/dev/hackerrank/ruby/arrays_hashes/array_selection.rb
-	"	6	47
-	^	6	48
-	.	6	42
-	+	6	42
-
-> /mnt/d/dev/hackerrank/ruby/arrays_hashes/deletion.rb
-	"	6	43
-	^	6	44
-	.	6	0
-	+	6	0
-
-> /mnt/d/dev/hackerrank/ruby/arrays_hashes/addition.rb
-	"	6	65
-	^	6	66
-	.	6	58
-	+	6	58
-
-> /mnt/d/dev/hackerrank/ruby/arrays_hashes/index_2.rb
-	"	7	33
-	^	7	34
-	.	7	0
-	+	7	0
-
-> /mnt/d/dev/hackerrank/ruby/arrays_hashes/index_1.rb
-	"	6	83
-	^	6	84
-	.	6	0
-	+	22	0
-	+	6	0
-
-> /mnt/d/dev/hackerrank/ruby/arrays_hashes/initialization.rb
-	"	5	17
-	^	5	18
-	.	5	17
-	+	5	17
-
-> /mnt/d/dev/hackerrank/ruby/control_structures/case.rb
-	"	10	2
-	^	10	3
-	.	10	0
-	+	10	0
-
-> /mnt/d/dev/hackerrank/ruby/control_structures/infinite_loop.rb
-	"	3	21
-	^	3	22
-	.	3	21
-	+	3	21
-
-> /mnt/d/dev/hackerrank/ruby/control_structures/until.rb
-	"	3	33
-	^	3	34
-	.	3	5
-	+	3	5
-
-> /mnt/d/dev/hackerrank/ruby/control_structures/unless.rb
-	"	5	2
-	^	5	3
-	.	5	0
-	+	5	0
-
-> /mnt/d/dev/hackerrank/ruby/control_structures/each.rb
-	"	5	2
-	^	5	3
-	.	6	0
-	+	5	3
-	+	6	0
-
-> /mnt/d/dev/hackerrank/ruby/introduction/object_methods.rb
-	"	3	0
-	^	3	0
-	.	3	0
-	+	1	19
-	+	3	0
-
-> /mnt/d/dev/hackerrank/ruby/introduction/object_method_parameters.rb
-	"	3	13
-	^	3	14
-	.	3	8
-	+	3	8
-
-> /mnt/d/dev/hackerrank/ruby/introduction/everything_is_an_object.rb
-	"	3	9
-	^	3	10
-	.	3	9
-	+	3	9
-
-> /mnt/d/dev/hackerrank/ruby/introduction/hello_world.rb
-	"	2	0
-	^	2	0
-	.	1	19
-	+	1	19
-
-> /mnt/d/dev/hackerrank/ruby/enumerables/intro.rb
-	"	8	0
-	^	8	3
-	.	8	0
-	+	71	0
-	+	8	0
-
-> /mnt/d/dev/hackerrank/.git/MERGE_MSG
-	"	1	0
-
-> /mnt/d/dev/hackerrank/ruby/algorithms/strings/camel_case.rb
-	"	1	4
-	^	1	5
-	.	1	5
-	+	6	0
-	+	1	5
-
-> /mnt/d/dev/snake_cpp/.gitignore
-	"	1	3
-	^	1	4
-	.	14	3
-	+	6	3
-	+	20	4
-	+	11	5
-	+	7	5
-	+	5	3
-	+	10	6
-	+	14	3
-
-> ~/.tmux.conf
-	"	1	0
-	^	11	2
-	.	11	1
-	+	2	25
-	+	28	0
-	+	1	1
-	+	2	1
-	+	9	1
-	+	11	1
-
-> /mnt/d/dev/first/.tmux.conf
-	"	1	0
-
-> /mnt/d/dev/first/.tmux
-	"	1	0
-
-> ~/.irbc
-	"	4	9
-	^	4	10
-	.	5	0
-	+	5	0
-
 > ~/.gemrc
-	"	1	0
-	.	2	0
-	+	2	0
-
-> /mnt/d/dev/hackerrank/ruby/30days/2.rb
-	"	1	18
-	^	1	19
-	.	1	5
+	"	1	24
+	^	1	25
+	.	1	24
 	+	1	0
-	+	2	0
-	+	1	5
-
-> /etc/apache2/apache2.conf
-	"	220	0
-
-> /etc/apache2/sites-available/codiad.dev.conf
-	"	21	8
-	^	21	9
-	.	21	8
-	+	1	32
-	+	1	22
-	+	1	25
-	+	1	1
-	+	1	7
-	+	31	0
-	+	1	10
-	+	10	0
-	+	13	0
-	+	12	0
-	+	11	8
-	+	21	8
-
-> /mnt/d/dev/omarparkes/package.json
-	"	10	23
-	^	10	24
-	.	10	23
-	+	5	29
-	+	10	23
-
-> /mnt/d/dev/omarparkes/manifest.yml
-	"	7	2
-	.	7	0
-	+	7	0
-
-> /mnt/d/dev/rituals-game/make.bat
-	"	131	8
-
-> /mnt/d/dev/rituals-game/Makefile
-	"	22	1
-
-> /etc/ssh/sshd_config
-	"	52	24
-	^	52	25
-	.	52	24
-	+	5	8
-	+	8	0
-	+	16	24
-	+	52	25
-	+	5	6
-	+	8	0
-	+	16	25
-	+	52	24
-
-> /mnt/d/dev/hackerrank/algorithms/warmup/a_very_big_sum.cc
-	"	20	0
-	.	20	0
-	+	20	0
-
-> /mnt/d/dev/hackerrank/test.cc
-	"	22	0
-
-> /usr/bin/code
-	"	1	10
-	^	1	11
-	.	1	10
-	+	4	0
-	+	3	39
-	+	1	10
-
-> /usr/bin/sdl2-config
-	"	1	0
-
-> /var/www/nodetest.dev/app.js
-	"	1	0
-	^	1	0
-	.	2	0
-	+	1	25
 	+	1	24
-	+	1	0
-	+	1	0
-	+	2	0
 
-> /var/www/nodetest.dev/main.js
-	"	1	0
+> ~/dev/tools/gitignore
+	"	40	2
+	^	40	3
+	.	40	0
+	+	40	0
 
-> /etc/apache2/sites-enabled/000-default.conf
-	"	1	0
-
-> ~/test.bat
-	"	3	8
-	^	3	9
-	.	3	8
-	+	3	8
-
-> /mnt/c/Users/omrprks/Development/cross_compile_test/src/makefile
-	"	29	10
-	^	29	11
-	.	29	10
-	+	3	0
-	+	2	0
-	+	8	26
-	+	10	0
-	+	8	10
+> ~/.zshrc
+	"	7	14
+	^	7	15
+	.	7	14
 	+	7	0
-	+	41	17
-	+	13	18
-	+	16	12
-	+	18	36
-	+	17	0
-	+	28	0
-	+	27	11
-	+	41	0
-	+	40	24
-	+	38	11
-	+	32	9
-	+	21	15
-	+	14	6
-	+	40	25
-	+	20	0
-	+	33	17
-	+	8	0
-	+	33	14
-	+	23	0
-	+	29	10
+	+	7	0
+	+	7	37
+	+	7	0
+	+	7	14
 
-> /mnt/c/Users/omrprks/Development/hackerrank/8.cc
-	"	1	0
-	^	13	29
-	.	13	28
-	+	16	0
-	+	15	10
-	+	8	0
-	+	10	11
-	+	9	11
-	+	13	28
+> ~/.gitconfig
+	"	10	0
+	.	10	0
+	+	2	0
+	+	3	26
+	+	2	0
+	+	6	9
+	+	1	0
+	+	7	23
+	+	6	0
+	+	23	1
+	+	10	0
 
-> /usr/bin/atom
-	"	2	75
-	^	2	76
-	.	2	39
-	+	2	39
-
-> /usr/bin/vcxsrv
-	"	2	39
-	^	2	40
-	.	2	39
-	+	1	12
-	+	2	39
-
-> /etc/hosts
-	"	9	0
+> /private/etc/hosts
+	"	10	0
 	.	11	0
 	+	11	0
+	+	11	0
+	+	11	0
 
-> /mnt/c/Users/omrprks/Downloads/Happy_Endings - season 1.en.zip
-	"	1	0
-
-> ~/test/node_modules/flightplan/flightplan.js
-	"	10	0
-
-> ~/test/index.js
-	"	1	0
-	^	1	27
-	.	1	36
-	+	1	29
-	+	8	0
-	+	1	7
+> ~/.bash_profile
+	"	24	0
+	^	24	1
+	.	24	0
+	+	1	40
+	+	12	0
+	+	1	27
+	+	21	0
+	+	20	0
+	+	21	0
 	+	9	0
-	+	1	4
+	+	8	9
+	+	3	11
+	+	4	8
+	+	5	11
+	+	4	9
+	+	6	11
+	+	4	9
+	+	5	8
+	+	7	8
+	+	5	8
+	+	6	8
+	+	3	11
+	+	5	11
+	+	3	11
+	+	5	11
+	+	1	0
+	+	1	0
+	+	5	11
+	+	3	8
+	+	12	0
+	+	10	2
+	+	1	7
+	+	16	8
+	+	13	11
+	+	14	46
+	+	16	0
+	+	25	0
+	+	22	0
+	+	22	0
+	+	24	0
+	+	22	0
+	+	25	0
+	+	24	0
+	+	22	41
+	+	24	0
+
+> ~/dev/raketest/Rakefile
+	"	9	16
+	^	9	17
+	.	9	16
+	+	49	0
+	+	49	8
+	+	1	19
+	+	49	14
+	+	49	8
+	+	49	9
+	+	49	49
+	+	49	13
+	+	49	6
+	+	49	12
+	+	49	2
+	+	49	0
+	+	49	9
+	+	49	24
+	+	49	39
+	+	49	16
+	+	49	0
+	+	49	0
+	+	49	20
+	+	49	0
+	+	48	0
+	+	5	12
+	+	6	11
+	+	7	20
+	+	9	16
+	+	10	10
+	+	15	23
+	+	6	2
+	+	32	32
+	+	42	16
+	+	43	7
+	+	42	14
+	+	43	8
+	+	42	23
+	+	43	38
+	+	46	11
+	+	47	8
+	+	46	26
+	+	47	48
+	+	1	1
+	+	9	16
+
+> ~/dev/raketest/main.cc
+	"	7	0
+	^	7	1
+	.	7	0
+	+	7	0
+
+> ~/.aliases
+	"	21	13
+	^	21	14
+	.	21	14
+	+	11	0
+	+	9	16
+	+	4	17
+	+	10	0
+	+	21	32
+	+	11	18
+	+	7	0
+	+	6	16
+	+	13	12
+	+	22	0
+	+	3	17
+	+	2	0
+	+	1	0
+	+	4	15
+	+	15	18
+	+	16	23
+	+	12	18
+	+	16	16
+	+	19	0
+	+	24	0
+	+	28	0
+	+	26	21
+	+	27	24
+	+	32	32
+	+	32	53
+	+	36	12
+	+	34	19
+	+	38	0
+	+	32	0
+	+	21	14
+
+> ~/.ssh/config
+	"	1	34
+	^	1	35
+	.	1	27
+	+	1	27
+
+> /private/etc/resolv.conf
+	"	1	0
+	.	1	0
+	+	1	10
+	+	1	10
+	+	1	9
+	+	1	3
+	+	1	0
+
+> ~/Desktop/tko.sh
+	"	1	0
+	^	1	11
+	.	1	10
+	+	1	10
+
+> ~/.functions
+	"	1	0
+	^	7	1
+	.	7	0
+	+	1	164
+	+	1	20
+	+	2	10
+	+	3	0
+	+	2	11
+	+	3	35
+	+	4	1
+	+	3	36
+	+	4	63
+	+	5	7
+	+	6	65
+	+	7	0
+
+> ~/.bashrc
+	"	1	0
+
+> ~/www/sites/kidzcabin/wwwroot/contact.html
+	"	1	0
+	^	1	0
+	.	80	7
+	+	80	7
+
+> ~/dev/test/src/app.cc
+	"	61	0
+
+> ~/dev/test/src/app.h
+	"	1	0
+
+> ~/dev/test/src/graphics.cc
+	"	62	0
+
+> ~/dev/test/src/graphics.h
+	"	1	0
+
+> ~/dev/test/src/window.h
+	"	1	0
+
+> ~/dev/test/src/tools.cc
+	"	70	0
+
+> ~/dev/test/src/tools.h
+	"	1	0
+
+> ~/dev/test/src/input.cc
+	"	1	0
+
+> ~/dev/test/src/input.h
+	"	1	0
+
+> /private/etc/hostconfig
+	"	1	0
+
+> ~/Desktop/beatemup/src/app.h
+	"	1	0
+	^	1	0
+	.	1	0
+	+	1	0
+
+> ~/Desktop/beatemup/src/main.cc
+	"	1	0
+	^	9	1
+	.	9	0
+	+	9	0
+	+	8	10
+	+	7	30
+	+	9	0
+
+> ~/Desktop/beatemup/src/makefile
+	"	7	43
+	^	7	44
+	.	7	43
+	+	7	24
+	+	4	6
+	+	7	43
+
+> ~/Desktop/beatemup/README.md
+	"	8	22
+	^	8	23
+	.	8	22
+	+	1	1
+	+	9	0
+	+	8	22
+
+> ~/Desktop/SDLOpenGL/src/makefile
+	"	5	0
+	^	5	0
+	.	5	0
+	+	4	4
+	+	2	9
+	+	1	8
+	+	2	17
+	+	1	17
+	+	8	3
+	+	5	0
+
+> ~/Desktop/pi_digits.cc
+	"	1	0
+
+> /private/etc/bashrc
+	"	7	0
+	.	7	0
+	+	7	11
+	+	5	0
+	+	7	69
+	+	6	0
+	+	7	23
+	+	7	17
+	+	7	20
+	+	7	20
+	+	7	18
+	+	7	11
+	+	7	11
+	+	7	11
+	+	7	4
+	+	7	0
+	+	7	6
+	+	7	14
+	+	7	11
+	+	7	14
+	+	7	13
+	+	7	11
+	+	7	11
 	+	6	0
 	+	7	0
-	+	17	2
-	+	16	49
-	+	15	36
-	+	16	59
-	+	12	12
-	+	19	16
-	+	4	0
-	+	1	36
+	+	6	0
+	+	7	0
 
-> ~/test/flightplan.js
+> /private/etc/my.cnf
 	"	1	0
+
+> /private/etc/paths
+	"	6	19
+	^	6	20
+	.	6	0
+	+	7	0
+	+	6	0
+
+> /private/etc/apache2/extra/httpd-vhosts.conf
+	"	16	0
+	^	45	40
+	.	45	39
+	+	71	18
+	+	71	0
+	+	70	0
+	+	69	0
+	+	68	0
+	+	22	1
+	+	23	0
+	+	27	0
+	+	26	0
+	+	25	0
+	+	24	0
+	+	24	0
+	+	24	12
+	+	81	0
+	+	80	0
+	+	79	0
+	+	78	0
+	+	77	0
+	+	76	0
+	+	75	0
+	+	73	0
+	+	72	0
+	+	70	42
+	+	71	0
+	+	71	0
+	+	65	0
+	+	47	16
+	+	49	0
+	+	50	0
+	+	51	0
+	+	52	0
+	+	53	0
+	+	54	0
+	+	55	0
+	+	56	0
+	+	58	0
+	+	59	0
+	+	60	0
+	+	61	0
+	+	62	0
+	+	63	0
+	+	64	0
+	+	65	0
+	+	47	0
+	+	46	0
+	+	45	0
+	+	44	0
+	+	43	0
+	+	42	0
+	+	40	0
+	+	35	0
+	+	36	0
+	+	37	0
+	+	38	0
+	+	39	0
+	+	38	0
+	+	37	0
+	+	36	0
+	+	33	0
+	+	32	0
+	+	31	0
+	+	30	0
+	+	29	0
+	+	30	22
+	+	36	22
+	+	43	22
+	+	30	22
+	+	36	22
+	+	43	22
+	+	24	25
+	+	30	22
+	+	36	22
+	+	43	22
+	+	24	0
+	+	24	29
+	+	24	14
+	+	30	24
+	+	36	24
+	+	43	24
+	+	30	27
+	+	36	22
+	+	43	27
+	+	24	30
+	+	30	29
+	+	36	21
+	+	43	29
+	+	24	0
+	+	30	38
+	+	36	40
+	+	43	39
+	+	30	21
+	+	24	19
+	+	24	29
+	+	32	39
+	+	38	39
+	+	45	39
+
+> ~/www/sites/httpd-vhosts.conf
+	"	1	0
+
+> /www/sites/al-emira/index.php
+	"	7	12
+	^	7	13
+	.	7	12
+	+	9	0
+	+	4	23
+	+	7	12
+
+> /private/etc/apache2/httpd.conf
+	"	499	0
+	^	499	0
+	.	499	0
+	+	169	0
+	+	219	0
+	+	220	0
+	+	221	0
+	+	222	0
+	+	160	0
+	+	499	0
+
+> /private/etc/bashrc.old
+	"	2	0
