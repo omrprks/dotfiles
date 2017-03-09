@@ -100,7 +100,7 @@
 	whitespace = fix
 
 [commit]
-	gpgsign = true
+	# gpgsign = true
 
 [diff]
 	renames = copies
