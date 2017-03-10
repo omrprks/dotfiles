@@ -1,9 +1,9 @@
-if [ -n "$BASH_VERSION" ]; then
+if [[ -n "$BASH_VERSION" ]]; then
 	### Bash ###
 	alias reload="source ~/.bash_profile"
 	alias bashconfig="code ~/.bashrc"
 
-	if [ -x /usr/bin/dircolors ]; then
+	if [[ -x /usr/bin/dircolors ]]; then
 		test -r ~/.dircolors && \
 			eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 		alias ls='ls --color=auto'
@@ -14,16 +14,16 @@ if [ -n "$BASH_VERSION" ]; then
 		alias fgrep='fgrep --color=auto'
 		alias egrep='egrep --color=auto'
 	fi
-elif [ -n "$ZSH_VERSION" ]; then
+elif [[ -n "$ZSH_VERSION" ]]; then
 	### ZSH ###
 	alias reload="source ~/.zshrc"
 	alias zshconfig="code ~/.zshrc"
 	alias ohmyzsh="code ~/.oh-my-zsh"
 else
-	echo "Unknown";
+	echo "Unknown Shell";
 fi
 
-if [ $OSTYPE == "linux-gnu" ]; then
+if [[ $OSTYPE == "linux-gnu" ]]; then
 	### Ubuntu ###
 	alias update="sudo apt update -y && sudo apt upgrade -y";
 
@@ -47,23 +47,23 @@ if [ $OSTYPE == "linux-gnu" ]; then
 	elif grep -q "native Linux" /proc/version; then
 		### Native Linux ###
 		# File Explorer #
-		if [ `isInstalled nautilus` == "1" ]; then
+		if [[ `isInstalled nautilus` == "1" ]]; then
 			alias e="nautilus"
 			alias e.="nautilus ."
 		fi
 	else
-		echo "Unknown"
+		echo "Unknown Linux Distro"
 	fi
 
-elif [ $OSTYPE == "darwin"* ]; then
-	### Homebrew ###
+elif [[ $OSTYPE == "darwin"* ]]; then
+### Homebrew ###
 	alias update="brew update -y";
 
 	# File Explorer #
 	alias e="open"
 	alias e.="open ."
 else
-	echo "Unknown";
+	echo "Unknown OS";
 fi
 
 # Abbr. #
@@ -88,8 +88,8 @@ alias ....='cd ../../../'
 alias .....='cd ../../../../'
 
 # Overrides #
-if [ `isInstalled wget` == "1" ]; then alias wget="wget -c"; fi
-if [ `isInstalled bc` == "1" ]; then alias bc="bc -l"; fi
+if [[ `isInstalled wget` == "1" ]]; then alias wget="wget -c"; fi
+if [[ `isInstalled bc` == "1" ]]; then alias bc="bc -l"; fi
 alias mkdir="mkdir -pv"
 
 # Date & Time #
@@ -97,7 +97,7 @@ alias now='date +"%T %d-%m-%Y"'
 alias now-time='date +"%T"'
 alias now-date='date +"%d-%m-%Y"'
 
-if [ `isInstalled curl` == "1" ]; then
+if [[ `isInstalled curl` == "1" ]]; then
 	# IP #
 	alias ip-public="curl http://ipecho.net/plain; echo"
 	alias ip-private="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | \
@@ -120,7 +120,7 @@ alias psg='ps aux | grep -v grep | grep -i -e VSZ -e'
 
 alias histg='history | grep'
 
-if [ `isInstalled git` == "1" ]; then
+if [[ `isInstalled git` == "1" ]]; then
 	### Git ###
 	alias gs="git status"
 	alias ga="git add -A"
@@ -133,12 +133,12 @@ if [ `isInstalled git` == "1" ]; then
 	alias co="git checkout"
 fi
 
-if [ `isInstalled cling` == "1" ]; then
+if [[ `isInstalled cling` == "1" ]]; then
 	### Cling ###
 	alias cling="~/.cling/bin/cling --nologo --std=c++1z"
 fi
 
-if [ `isInstalled ruby` == "1" ]; then
+if [[ `isInstalled ruby` == "1" ]]; then
 	### Ruby ###
 	alias bex="bundle exec"
 fi

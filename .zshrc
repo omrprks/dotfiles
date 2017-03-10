@@ -21,11 +21,11 @@ plugins=(git brew)
 source $ZSH/oh-my-zsh.sh
 
 ### User Config ###
-# Aliases #
-if [ -f ~/.aliases ]; then . ~/.aliases; fi
-
 # Functions #
 if [ -f ~/.functions ]; then . ~/.functions; fi
+
+# Aliases #
+if [ -f ~/.aliases ]; then . ~/.aliases; fi
 
 # Exports #
 if [ -f ~/.exports ]; then . ~/.exports; fi

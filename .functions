@@ -1,10 +1,5 @@
 function isInstalled() {
-	if [ $(dpkg-query -W -f='${Status}' $1 2>/dev/null | \
-		grep -c "ok installed") -eq 0 ]; then
-		echo 0;
-	else
-		echo 1;
-	fi
+	if hash $1 2> /dev/null; then echo 1; else echo 0; fi;
 }
 
 function history%() {
@@ -15,7 +10,7 @@ function history%() {
 	grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10;
 }
 
-if [ `isInstalled git` == "1" ]; then
+if [[ `isInstalled git` == "1" ]]; then
 	function parseGitBranch() {
 		git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/';
 	}
