@@ -9,11 +9,11 @@ export ARCHFLAGS="-arch x86_64"
 ### SSH ###
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-### SSH Editor ###
+# SSH Editor #
 if [[ -n $SSH_CONNECTION ]]; then
-	export EDITOR='vim'
+	export EDITOR="vim"
 else
-	export EDITOR='mvim'
+	export EDITOR="mvim"
 fi
 
 ### Ruby ###
@@ -21,6 +21,8 @@ RBENV_VER=$(egrep "^\s+2\.\d\.\d+$" <(rbenv install -l) | tail -1)
 export GEM_HOME=$HOME/.rbenv/versions/$RBENV_VER/lib/ruby/gems/$RBENV_VER
 export GEM_PATH=$HOME/.rbenv/versions/$RBENV_VER/lib/ruby/gems/$RBENV_VER
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 ### SQLite ###
 export PATH="/usr/local/opt/sqlite/bin:$PATH"

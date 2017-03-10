@@ -17,23 +17,21 @@ COMPLETION_WAITING_DOTS="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 plugins=(git brew)
 
+# Oh My Zsh #
 source $ZSH/oh-my-zsh.sh
 
 ### User Config ###
-# export MANPATH="/usr/local/man:$MANPATH"
-
-### Aliases ###
+# Aliases #
 if [ -f ~/.aliases ]; then . ~/.aliases; fi
 
-### Functions ####
+# Functions #
 if [ -f ~/.functions ]; then . ~/.functions; fi
 
-### Exports ###
+# Exports #
 if [ -f ~/.exports ]; then . ~/.exports; fi
 
-### Themes ###
+# Themes #
 if [ -f ~/.themes ]; then . ~/.themes; fi
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
+# Zsh Completion #
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

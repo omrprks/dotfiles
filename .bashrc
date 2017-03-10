@@ -3,11 +3,8 @@ case $- in
 	*) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
 HISTCONTROL=ignoreboth
 
-# append to the history file, don't overwrite it
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
@@ -35,16 +32,23 @@ case "$TERM" in
 	xterm-color) color_prompt=yes;;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && \
+	echo terminal || echo error)" \
+	"$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Functions #
+if [ -f ~/.functions ]; then . ~/.functions; fi
+
+# Aliases #
+if [ -f ~/.aliases ]; then . ~/.aliases; fi
+
+# Exports #
+if [ -f ~/.exports ]; then . ~/.exports; fi
+
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
 	if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-		# We have color support; assume it's compliant with Ecma-48
-		# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-		# a case would tend to support setf rather than setaf.)
 		color_prompt=yes
 	else
 		color_prompt=
@@ -60,11 +64,11 @@ PS1='\
 \[\033[00;31m\]@\
 \[\033[00;31m\]\h: \
 \[\033[00;32m\]\w\
-\[\033[00;34m\]$(parse_git_branch)\n\
+\[\033[00;34m\]$(parseGitBranch)\n\
 \[\033[00;33m\]\$\
 \[\033[00m\] '
 else
-	PS1='${debian_chroot:+($debian_chroot)}\u@\h: \w$(parse_git_branch)\n\$ '
+	PS1='${debian_chroot:+($debian_chroot)}\u@\h: \w$(parseGitBranch)\n\$ '
 fi
 
 unset color_prompt force_color_prompt
@@ -78,21 +82,6 @@ xterm*|rxvt*)
 	;;
 esac
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && \
-	echo terminal || echo error)" \
-	"$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Aliases
-if [ -f ~/.aliases ]; then . ~/.aliases; fi
-
-# Functions
-if [ -f ~/.functions ]; then . ~/.functions; fi
-
-# Exports
-if [ -f ~/.exports ]; then . ~/.exports; fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -105,6 +94,3 @@ if ! shopt -oq posix; then
 fi
 
 LS_COLORS="ow=01;36;40" && export LS_COLORS
-
-PATH=/usr/local/bin:/usr/local/sbin:$PATH
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
