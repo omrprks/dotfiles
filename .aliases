@@ -6,7 +6,7 @@ if [[ -n "$BASH_VERSION" ]]; then
 	if [[ -x /usr/bin/dircolors ]]; then
 		test -r ~/.dircolors && \
 			eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-		alias ls='ls --color=auto'
+		alias ls="ls -GFp --color=auto"
 		alias dir='dir --color=auto'
 		alias vdir='vdir --color=auto'
 
@@ -19,6 +19,8 @@ elif [[ -n "$ZSH_VERSION" ]]; then
 	alias reload="source ~/.zshrc"
 	alias zshconfig="code ~/.zshrc"
 	alias ohmyzsh="code ~/.oh-my-zsh"
+
+	alias ls="ls -GFp"
 else
 	echo "Unknown Shell";
 fi
@@ -30,20 +32,25 @@ if [[ $OSTYPE == "linux-gnu" ]]; then
 	if grep -q Microsoft /proc/version; then
 		### Ubuntu on Windows ###
 		# Command Line #
-		alias cmd="/mnt/c/Windows/System32/cmd.exe /c"
+		alias cmd="cmd.exe /c"
 
+		PROGRAMFILES=$(cmd "echo %PROGRAMFILES%" | sed -r 's/[D:\\C:\\]+/\/mnt\/d\//g' | sed -r 's/ /\\ /g')
+		
 		# Editor #
 		alias code="cmd code"
 
 		# IDE #
-		alias devenv="/mnt/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio\ 14.0/Common7/IDE/devenv.exe &"
+		alias devenv="$PROGRAMFILESX86/Microsoft\ Visual\ Studio\ 14.0/Common7/IDE/devenv.exe &"
 
 		# Debugger #
 		alias x64dbg="/mnt/c/x64dbg/x64/x64dbg.exe &"
 
 		# File Explorer #
-		alias e="explorer.exe"
-		alias e.="explorer.exe ."
+		alias e="/mnt/c/Windows/SysWOW64/explorer.exe"
+		alias e.="e ."
+
+		# Vagrant #
+		PATH=/mnt/c/Program\ Files\ \(x86\)/Vagrant/bin:$PATH
 	elif grep -q "native Linux" /proc/version; then
 		### Native Linux ###
 		# File Explorer #
@@ -72,7 +79,6 @@ alias r="reset"
 alias h="history"
 
 alias l='ls -CF'
-alias ls='ls -GFp'
 # alias lsd=$'ls -F | grep --color=never \'/$\' | awk \'{ printf("%s ", $1); }\' && echo'
 alias lsd=$'echo -n $(ls | grep \'/$\') && echo'
 alias ll='ls -alF'

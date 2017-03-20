@@ -17,16 +17,18 @@ else
 fi
 
 ### Ruby ###
-RBENV_VER=$(egrep "^\s+2\.\d\.\d+$" <(rbenv install -l) | tail -1)
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+RBENV_VER=$(rbenv install -l | egrep -v - | tail -1 | tr -d ' ')
 export GEM_HOME=$HOME/.rbenv/versions/$RBENV_VER/lib/ruby/gems/$RBENV_VER
 export GEM_PATH=$HOME/.rbenv/versions/$RBENV_VER/lib/ruby/gems/$RBENV_VER
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 ### SQLite ###
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
 
-export PATH=$PATH:$HOME/.local/bin
 export PATH="/usr/local/opt/apr/bin:$PATH"
 export PATH="/usr/local/opt/apr-util/bin:$PATH"
+
+# export PATH=/usr/local/bin:/usr/local/sbin:$PATH
