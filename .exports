@@ -16,6 +16,11 @@ else
 	export EDITOR="mvim"
 fi
 
+### CoreUtils ###
+if [[ `isInstalled brew` == "1" ]]; then
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+fi
+
 ### Ruby ###
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"

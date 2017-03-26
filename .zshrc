@@ -3,6 +3,7 @@ export ZSH=/Users/omrprks/.oh-my-zsh
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
 # ZSH_THEME="materialshell-oceanic"
+# ZSH_THEME="pure"
 
 CASE_SENSITIVE="true"
 # HYPHEN_INSENSITIVE="true"
