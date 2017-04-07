@@ -16,19 +16,46 @@ else
 	export EDITOR="mvim"
 fi
 
-### CoreUtils ###
+### Homebrew ###
 if [[ `isInstalled brew` == "1" ]]; then
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+# CoreUtls #
+if [[ `brew list coreutils 2> /dev/null` ]]; then
+# 	PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 fi
 
-### Ruby ###
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-RBENV_VER=$(rbenv install -l | egrep -v - | tail -1 | tr -d ' ')
-export GEM_HOME=$HOME/.rbenv/versions/$RBENV_VER/lib/ruby/gems/$RBENV_VER
-export GEM_PATH=$HOME/.rbenv/versions/$RBENV_VER/lib/ruby/gems/$RBENV_VER
+# Ruby #
+if [[ `brew list rbenv 2> /dev/null` ]]; then
+if [[ `brew list ruby-build 2> /dev/null` ]]; then
+	export PATH="$HOME/.rbenv/bin:$PATH"
+	export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+	RBENV_VER=$(rbenv install -l | egrep -v - | tail -1 | tr -d ' ')
+	export GEM_HOME=$HOME/.rbenv/versions/$RBENV_VER/lib/ruby/gems/$RBENV_VER
+	export GEM_PATH=$HOME/.rbenv/versions/$RBENV_VER/lib/ruby/gems/$RBENV_VER
+	echo $RBENV_VER > ~/.ruby-version
+	if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+else
+	brew install ruby-build
+fi # ruby-build
+else
+	brew install rbenv
+fi # rbenv
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+### ZSH ###
+if [[ `brew list zsh-completions 2> /dev/null` ]]; then
+	fpath=(/usr/local/share/zsh-completions $fpath)
+	# autoload -U compinit
+	# compinit
+else
+	brew install zsh-completions
+fi # zsh-completions
+if [[ `brew list zsh-syntax-highlighting 2> /dev/null` ]]; then
+	source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+else
+	brew install zsh-syntax-highlighting
+fi # zsh-syntax-highlighting
+else
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi # Homebrew
 
 ### SQLite ###
 export PATH="/usr/local/opt/sqlite/bin:$PATH"

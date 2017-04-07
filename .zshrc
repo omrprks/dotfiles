@@ -1,8 +1,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export ZSH=/Users/omrprks/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="powerlevel9k/powerlevel9k"
-# ZSH_THEME="materialshell-oceanic"
+# ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="materialshell-oceanic"
 # ZSH_THEME="pure"
 
 CASE_SENSITIVE="true"
@@ -33,6 +33,3 @@ if [ -f ~/.exports ]; then . ~/.exports; fi
 
 # Themes #
 if [ -f ~/.themes ]; then . ~/.themes; fi
-
-# Zsh Completion #
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
