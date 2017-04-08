@@ -141,7 +141,7 @@ fi
 
 if [[ `isInstalled cling` == "1" ]]; then
 	### Cling ###
-	alias cling="~/.cling/bin/cling --nologo --std=c++1z"
+	alias cling="cling --nologo --std=c++1z"
 fi
 
 if [[ `isInstalled ruby` == "1" ]]; then
