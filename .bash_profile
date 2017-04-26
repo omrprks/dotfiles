@@ -1,1 +1,0 @@
-if [ -s ~/.bashrc ]; then . ~/.bashrc; fi

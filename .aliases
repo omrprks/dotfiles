@@ -51,15 +51,18 @@ if [[ $OSTYPE == "linux-gnu" ]]; then
 
 		# Vagrant #
 		PATH=/mnt/c/Program\ Files\ \(x86\)/Vagrant/bin:$PATH
-	elif grep -q "native Linux" /proc/version; then
+	# elif grep -q "native Linux" /proc/version; then
+	else
 		### Native Linux ###
 		# File Explorer #
 		if [[ `isInstalled nautilus` == "1" ]]; then
 			alias e="nautilus"
 			alias e.="nautilus ."
 		fi
-	else
-		echo "Unknown Linux Distro"
+
+		alias ls="ls -GFp --color=auto"
+	# else
+		# echo "Unknown Linux Distro"
 	fi
 
 elif [[ $OSTYPE == "darwin"* ]]; then

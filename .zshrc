@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # ZSH_THEME="powerlevel9k/powerlevel9k"
-ZSH_THEME="materialshell-oceanic"
+ZSH_THEME="materialshell"
 # ZSH_THEME="pure"
 
 CASE_SENSITIVE="true"
@@ -33,3 +33,5 @@ if [ -f ~/.exports ]; then . ~/.exports; fi
 
 # Themes #
 if [ -f ~/.themes ]; then . ~/.themes; fi
+
+source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

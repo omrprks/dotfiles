@@ -16,11 +16,19 @@ else
 	export EDITOR="mvim"
 fi
 
+if [[ $OSTYPE == "linux-gnu" ]]; then
+	export PATH="$HOME/.linuxbrew/bin:$PATH"
+elif [[ $OSTYPE == "darwin" ]]; then
+	# export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+	echo ""
+fi
+
 ### Homebrew ###
 if [[ `isInstalled brew` == "1" ]]; then
-# CoreUtls #
+# Coreutils #
 if [[ `brew list coreutils 2> /dev/null` ]]; then
-# 	PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+	# PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+	echo ""
 fi
 
 # Ruby #
@@ -34,10 +42,12 @@ if [[ `brew list ruby-build 2> /dev/null` ]]; then
 	echo $RBENV_VER > ~/.ruby-version
 	if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 else
-	brew install ruby-build
+	# brew install ruby-build
+	echo "'ruby-build' not installed."
 fi # ruby-build
 else
-	brew install rbenv
+	# brew install rbenv
+	echo "'rbenv' not installed."
 fi # rbenv
 
 ### ZSH ###
@@ -46,15 +56,24 @@ if [[ `brew list zsh-completions 2> /dev/null` ]]; then
 	# autoload -U compinit
 	# compinit
 else
-	brew install zsh-completions
+	# brew install zsh-completions
+	echo "'zsh-completions' not installed."
 fi # zsh-completions
 if [[ `brew list zsh-syntax-highlighting 2> /dev/null` ]]; then
-	source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+	# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+	echo ""
 else
-	brew install zsh-syntax-highlighting
+	# brew install zsh-syntax-highlighting
+	echo "'zsh-syntax-highlighting' not installed."
+	echo "(cd ~/.oh-my-zsh && git clone git://github.com/zsh-users/zsh-syntax-highlighting.git)"
 fi # zsh-syntax-highlighting
 else
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	if [[ $OSTYPE == "linux-gnu" ]]; then
+		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+		PATH="$HOME/.linuxbrew/bin:$PATH"
+	elif [[ $OSTYPE == "darwin" ]]; then
+		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	fi
 fi # Homebrew
 
 ### SQLite ###
@@ -62,5 +81,3 @@ export PATH="/usr/local/opt/sqlite/bin:$PATH"
 
 export PATH="/usr/local/opt/apr/bin:$PATH"
 export PATH="/usr/local/opt/apr-util/bin:$PATH"
-
-# export PATH=/usr/local/bin:/usr/local/sbin:$PATH
