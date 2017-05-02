@@ -18,7 +18,7 @@ if [[ $OSTYPE == "linux-gnu" ]]; then
 	if [[ -x /usr/bin/dircolors ]]; then
 		test -r ~/.dircolors && \
 			eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-		alias ls="ls --color=auto"
+		alias ls="ls -GFp --color=auto"
 		alias dir='dir --color=auto'
 		alias vdir='vdir --color=auto'
 
@@ -41,7 +41,7 @@ if [[ $OSTYPE == "linux-gnu" ]]; then
 #		alias x64dbg="/mnt/c/x64dbg/x64/x64dbg.exe &"
 
 		# File Explorer #
-		alias e="explorer.exe"
+		alias e="cmdc explorer.exe"
 		alias e.="e ."
 
 		# Vagrant #

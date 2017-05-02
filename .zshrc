@@ -2,8 +2,8 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # ZSH_THEME="powerlevel9k/powerlevel9k"
-# ZSH_THEME="materialshell-oceanic"
-ZSH_THEME="refined"
+ZSH_THEME="materialshell"
+# ZSH_THEME="refined"
 
 CASE_SENSITIVE="true"
 # HYPHEN_INSENSITIVE="true"
@@ -16,7 +16,7 @@ COMPLETION_WAITING_DOTS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 # HIST_STAMPS="mm/dd/yyyy"
 # ZSH_CUSTOM=/path/to/new-custom-folder
-plugins=(git brew zsh-syntax-highlighting)
+plugins=(git brew zsh-syntax-highlighting zsh-completions)
 
 # Oh My Zsh #
 if [[ -d $ZSH ]]; then
