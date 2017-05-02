@@ -2,11 +2,23 @@ if [[ -n "$BASH_VERSION" ]]; then
 	### Bash ###
 	alias reload="source ~/.bash_profile"
 	alias bashconfig="code ~/.bashrc"
+elif [[ -n "$ZSH_VERSION" ]]; then
+	### ZSH ###
+	alias reload="source ~/.zshrc"
+	alias zshconfig="code ~/.zshrc"
+	alias ohmyzsh="code ~/.oh-my-zsh"
+else
+	echo "Unknown Shell";
+fi
+
+if [[ $OSTYPE == "linux-gnu" ]]; then
+	### Ubuntu ###
+	alias upgrade="sudo apt update -y && sudo apt upgrade -y";
 
 	if [[ -x /usr/bin/dircolors ]]; then
 		test -r ~/.dircolors && \
 			eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-		alias ls="ls -GFp --color=auto"
+		alias ls="ls --color=auto"
 		alias dir='dir --color=auto'
 		alias vdir='vdir --color=auto'
 
@@ -14,66 +26,52 @@ if [[ -n "$BASH_VERSION" ]]; then
 		alias fgrep='fgrep --color=auto'
 		alias egrep='egrep --color=auto'
 	fi
-elif [[ -n "$ZSH_VERSION" ]]; then
-	### ZSH ###
-	alias reload="source ~/.zshrc"
-	alias zshconfig="code ~/.zshrc"
-	alias ohmyzsh="code ~/.oh-my-zsh"
-
-	alias ls="ls -GFp"
-else
-	echo "Unknown Shell";
-fi
-
-if [[ $OSTYPE == "linux-gnu" ]]; then
-	### Ubuntu ###
-	alias update="sudo apt update -y && sudo apt upgrade -y";
 
 	if grep -q Microsoft /proc/version; then
 		### Ubuntu on Windows ###
 		# Command Line #
-		alias cmd="cmd.exe /c"
+		alias cmdc="cmd.exe /c"
 
-		PROGRAMFILES=$(cmd "echo %PROGRAMFILES%" | sed -r 's/[D:\\C:\\]+/\/mnt\/d\//g' | sed -r 's/ /\\ /g')
+#		PROGRAMFILES=$(cmd.exe "echo %PROGRAMFILES%" | sed -r 's/[D:\\C:\\]+/\/mnt\/d\//g' | sed -r 's/ /\\ /g')
 		
-		# Editor #
-		alias code="cmd code"
-
 		# IDE #
-		alias devenv="$PROGRAMFILESX86/Microsoft\ Visual\ Studio\ 14.0/Common7/IDE/devenv.exe &"
+#		alias devenv="$PROGRAMFILESX86/Microsoft\ Visual\ Studio\ 14.0/Common7/IDE/devenv.exe &"
 
 		# Debugger #
-		alias x64dbg="/mnt/c/x64dbg/x64/x64dbg.exe &"
+#		alias x64dbg="/mnt/c/x64dbg/x64/x64dbg.exe &"
 
 		# File Explorer #
-		alias e="/mnt/c/Windows/SysWOW64/explorer.exe"
+		alias e="explorer.exe"
 		alias e.="e ."
 
 		# Vagrant #
-		PATH=/mnt/c/Program\ Files\ \(x86\)/Vagrant/bin:$PATH
-	# elif grep -q "native Linux" /proc/version; then
-	else
+#		PATH=/mnt/c/Program\ Files\ \(x86\)/Vagrant/bin:$PATH
+	elif grep -q "Ubuntu" /proc/version; then
 		### Native Linux ###
 		# File Explorer #
 		if [[ `isInstalled nautilus` == "1" ]]; then
 			alias e="nautilus"
 			alias e.="nautilus ."
 		fi
-
-		alias ls="ls -GFp --color=auto"
-	# else
-		# echo "Unknown Linux Distro"
+	else
+		echo "Unknown Linux Distro"
 	fi
-
 elif [[ $OSTYPE == "darwin"* ]]; then
-### Homebrew ###
-	alias update="brew update -y";
+	# Aliases #
+	if [[ `brew coreutils` == "1" ]]; then
+		alias find="gfind"
+	fi
 
 	# File Explorer #
 	alias e="open"
-	alias e.="open ."
+	alias e.="e ."
+	alias ls="ls -GFp"
 else
 	echo "Unknown OS";
+fi
+
+if [[ `isInstalled brew` == 1 ]]; then
+	alias update="brew update -y"
 fi
 
 # Abbr. #
@@ -81,10 +79,9 @@ alias c="clear"
 alias r="reset"
 alias h="history"
 
-alias l='ls -CF'
-# alias lsd=$'ls -F | grep --color=never \'/$\' | awk \'{ printf("%s ", $1); }\' && echo'
+alias l="ls -CF"
 alias lsd=$'echo -n $(ls | grep \'/$\') && echo'
-alias ll='ls -alF'
+alias ll="ls -alF"
 alias la='ls -A'
 alias lla='ls -la'
 alias l.='ls -d .*'

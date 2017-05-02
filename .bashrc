@@ -1,5 +1,11 @@
 cd ~
 
+if [[ $OSTYPE == "linux-gnu" ]]; then
+	if [[ `grep Microsoft /proc/version` ]]; then
+		if [[ -f /bin/zsh ]]; then exec /bin/zsh; fi
+	fi
+fi
+
 case $- in
 	*i*) ;;
 	*) return;;
@@ -38,13 +44,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && \
 	echo terminal || echo error)" \
 	"$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Functions #
 if [ -f ~/.functions ]; then . ~/.functions; fi
-
-# Aliases #
 if [ -f ~/.aliases ]; then . ~/.aliases; fi
-
-# Exports #
 if [ -f ~/.exports ]; then . ~/.exports; fi
 
 force_color_prompt=yes
