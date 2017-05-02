@@ -2,8 +2,8 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # ZSH_THEME="powerlevel9k/powerlevel9k"
-ZSH_THEME="materialshell"
-# ZSH_THEME="pure"
+# ZSH_THEME="materialshell-oceanic"
+ZSH_THEME="refined"
 
 CASE_SENSITIVE="true"
 # HYPHEN_INSENSITIVE="true"
@@ -16,22 +16,19 @@ COMPLETION_WAITING_DOTS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 # HIST_STAMPS="mm/dd/yyyy"
 # ZSH_CUSTOM=/path/to/new-custom-folder
-plugins=(git brew)
+plugins=(git brew zsh-syntax-highlighting)
 
 # Oh My Zsh #
-source $ZSH/oh-my-zsh.sh
+if [[ -d $ZSH ]]; then
+	source $ZSH/oh-my-zsh.sh
+else
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi
 
 ### User Config ###
-# Functions #
 if [ -f ~/.functions ]; then . ~/.functions; fi
-
-# Aliases #
 if [ -f ~/.aliases ]; then . ~/.aliases; fi
-
-# Exports #
 if [ -f ~/.exports ]; then . ~/.exports; fi
-
-# Themes #
 if [ -f ~/.themes ]; then . ~/.themes; fi
 
-source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+LS_COLORS="ow=01;36;40" && export LS_COLORS
