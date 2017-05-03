@@ -1,9 +1,9 @@
+echo "start .zshrc"
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export ZSH=$HOME/.oh-my-zsh
 
 # ZSH_THEME="powerlevel9k/powerlevel9k"
 ZSH_THEME="materialshell"
-# ZSH_THEME="refined"
 
 CASE_SENSITIVE="true"
 # HYPHEN_INSENSITIVE="true"
@@ -16,7 +16,7 @@ COMPLETION_WAITING_DOTS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 # HIST_STAMPS="mm/dd/yyyy"
 # ZSH_CUSTOM=/path/to/new-custom-folder
-plugins=(git brew zsh-syntax-highlighting zsh-completions)
+plugins=(zsh-syntax-highlighting)
 
 # Oh My Zsh #
 if [[ -d $ZSH ]]; then
@@ -32,3 +32,4 @@ if [ -f ~/.exports ]; then . ~/.exports; fi
 if [ -f ~/.themes ]; then . ~/.themes; fi
 
 LS_COLORS="ow=01;36;40" && export LS_COLORS
+echo "end .zshrc"
