@@ -1,3 +1,5 @@
+echo "start .aliases"
+
 if [[ -n "$BASH_VERSION" ]]; then
 	### Bash ###
 	alias reload="source ~/.bash_profile"
@@ -148,3 +150,5 @@ if [[ `isInstalled ruby` == "1" ]]; then
 	### Ruby ###
 	alias bex="bundle exec"
 fi
+
+echo "end .aliases"

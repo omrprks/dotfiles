@@ -1,3 +1,5 @@
+echo "start .functions"
+
 function isInstalled() {
 	if hash $1 2> /dev/null; then echo 1; else echo 0; fi;
 }
@@ -23,3 +25,5 @@ function battery() {
 	cat /sys/class/power_supply/battery/status;
 	printf "Capacity: %s%%\n" `cat /sys/class/power_supply/battery/capacity`;
 }
+
+echo "end .functions"

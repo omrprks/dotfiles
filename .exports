@@ -1,3 +1,5 @@
+echo "start .exports"
+
 ### Language ###
 export LANG=en_US.UTF-8
 
@@ -20,19 +22,19 @@ fi
 
 ### Homebrew ###
 if [[ $OSTYPE == "linux-gnu" ]]; then
-	if [[ -d "$HOME/.linuxbrew" ]]; then
-		export PATH="$HOME/.linuxbrew/bin:$PATH"
-	fi
+	[ -d "$HOME/.linuxbrew" ] && \
+		export PATH="$HOME/.linuxbrew/bin:$PATH" && \
+		export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH" && \
+		export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 elif [[ $OSTYPE == "darwin" ]]; then
-	export PATH="/usr/local/bin:$PATH"
+	[ `isInstalled brew` == "1" ] && export PATH="/usr/local/bin:$PATH"
 fi
 
 if [[ `isInstalled brew` == "1" ]]; then
 	# Ruby #
 	if [[ `brew list rbenv 2> /dev/null` ]]; then
 		if [[ `brew list ruby-build 2> /dev/null` ]]; then
-			export PATH="$HOME/.rbenv/bin:$PATH"
-			export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+			export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 			RBENV_VER=$(rbenv install -l | egrep -v - | tail -1 | tr -d ' ')
 			export GEM_HOME=$HOME/.rbenv/versions/$RBENV_VER/lib/ruby/gems/$RBENV_VER
 			export GEM_PATH=$HOME/.rbenv/versions/$RBENV_VER/lib/ruby/gems/$RBENV_VER
@@ -77,3 +79,5 @@ fi # Homebrew
 # export PATH="/usr/local/opt/apr-util/bin:$PATH"
 
 # export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+echo "end .exports"
