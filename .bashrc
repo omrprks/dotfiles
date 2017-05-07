@@ -1,11 +1,5 @@
 cd ~
 
-if [[ $OSTYPE == "linux-gnu" ]]; then
-	if [[ `grep Microsoft /proc/version` ]]; then
-		if [[ -f /bin/zsh ]]; then exec /bin/zsh; fi
-	fi
-fi
-
 case $- in
 	*i*) ;;
 	*) return;;
