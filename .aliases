@@ -13,8 +13,7 @@ else
 	echo "Unknown Shell";
 fi
 
-if [[ $OSTYPE == "linux-gnu" ]]; then
-	### Ubuntu ###
+if [[ $OSTYPE == "linux-gnu"* ]]; then
 	alias upgrade="sudo apt update -y && sudo apt upgrade -y";
 
 	if [[ -x /usr/bin/dircolors ]]; then
@@ -141,14 +140,12 @@ if [[ `isInstalled git` == "1" ]]; then
 	alias co="git checkout"
 fi
 
-if [[ `isInstalled cling` == "1" ]]; then
-	### Cling ###
+# Cling #
+[[ `isInstalled cling` == "1" ]] && \
 	alias cling="cling --nologo --std=c++1z"
-fi
 
-if [[ `isInstalled ruby` == "1" ]]; then
-	### Ruby ###
+# Ruby #
+[[ `isInstalled ruby` == "1" ]] && \
 	alias bex="bundle exec"
-fi
 
 echo "end .aliases"

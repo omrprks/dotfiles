@@ -4,48 +4,34 @@ echo "start .exports"
 export LANG=en_US.UTF-8
 
 ### Compilation Flags ###
-export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch x86_64"
 
 ### SSH ###
-export SSH_KEY_PATH="~/.ssh/rsa_id"
+[ -f ~/.ssh/rsa_id ] && export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # SSH Editor #
-if [[ -n "$SSH_CONNECTION" ]]; then
-	export EDITOR="vim"
-else
+[ -n "$SSH_CONNECTION" ] && \
+	export EDITOR="vim" || \
 	export EDITOR="mvim"
-fi
 
-if [[ `grep Microsoft /proc/version` ]]; then
+[ `grep Microsoft /proc/version` ] && \
 	export DISPLAY="localhost:0.0"
-fi
 
 ### Homebrew ###
-if [[ $OSTYPE == "linux-gnu" ]]; then
-	[ -d "$HOME/.linuxbrew" ] && \
-		export PATH="$HOME/.linuxbrew/bin:$PATH" && \
-		export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH" && \
+if [[ $OSTYPE == "linux-gnu"* ]]; then
+	if [ -d "$HOME/.linuxbrew" ]; then
+		[[ ! `grep $HOME/.linuxbrew/bin <<< $PATH` ]] && \
+			export PATH="$HOME/.linuxbrew/bin:$PATH"
+		export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 		export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+	fi
 elif [[ $OSTYPE == "darwin" ]]; then
-	[ `isInstalled brew` == "1" ] && export PATH="/usr/local/bin:$PATH"
+	[ `isInstalled brew` == "1" ] && \
+		[[ ! `grep /usr/local/bin <<< $PATH` ]] && \
+			export PATH="/usr/local/bin:$PATH"
 fi
 
 if [[ `isInstalled brew` == "1" ]]; then
-	# Ruby #
-	if [[ `brew list rbenv 2> /dev/null` ]]; then
-		if [[ `brew list ruby-build 2> /dev/null` ]]; then
-			export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-			RBENV_VER=$(rbenv install -l | egrep -v - | tail -1 | tr -d ' ')
-			export GEM_HOME=$HOME/.rbenv/versions/$RBENV_VER/lib/ruby/gems/$RBENV_VER
-			export GEM_PATH=$HOME/.rbenv/versions/$RBENV_VER/lib/ruby/gems/$RBENV_VER
-			echo $RBENV_VER > ~/.ruby-version
-			if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-		else
-			brew install ruby-build
-		fi # ruby-build
-	else
-		brew install rbenv
-	fi # rbenv
 	### ZSH ###
 	if [[ -n "$ZSH_VERSION" ]]; then
 		if [[ -d ~/.oh-my-zsh/custom/plugins/zsh-completions/ ]]; then
@@ -65,7 +51,7 @@ if [[ `isInstalled brew` == "1" ]]; then
 		fi # zsh-syntax-highlighting
 	fi # ZSH
 else
-	if [[ "$OSTYPE" == "linux-gnu" ]]; then
+	if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
 		export PATH="$HOME/.linuxbrew/bin:$PATH"	
 	elif [[ "$OSTYPE" == "darwin" ]]; then
