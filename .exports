@@ -9,10 +9,8 @@ export LANG=en_US.UTF-8
 ### SSH ###
 [ -f ~/.ssh/rsa_id ] && export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# SSH Editor #
-[ -n "$SSH_CONNECTION" ] && \
-	export EDITOR="vim" || \
-	export EDITOR="mvim"
+### Editor ###
+export EDITOR="vim"
 
 [ `grep Microsoft /proc/version` ] && \
 	export DISPLAY="localhost:0.0"
@@ -58,12 +56,5 @@ else
 		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	fi
 fi # Homebrew
-
-### SQLite ###
-# export PATH="/usr/local/opt/sqlite/bin:$PATH"
-# export PATH="/usr/local/opt/apr/bin:$PATH"
-# export PATH="/usr/local/opt/apr-util/bin:$PATH"
-
-# export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 echo "end .exports"
