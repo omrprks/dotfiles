@@ -12,7 +12,7 @@ export LANG=en_US.UTF-8
 ### Editor ###
 export EDITOR="vim"
 
-[ `grep Microsoft /proc/version` ] && \
+[[ `grep Microsoft /proc/version` ]] && \
 	export DISPLAY="localhost:0.0"
 
 ### Homebrew ###
