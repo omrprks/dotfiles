@@ -1,7 +1,7 @@
 echo "start .functions"
 
 function isInstalled() {
-	if hash $1 2> /dev/null; then echo 1; else echo 0; fi;
+	[[ `which $1 2> /dev/null` ]] && echo 1 || echo 0
 }
 
 function history%() {
@@ -12,7 +12,7 @@ function history%() {
 	grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10;
 }
 
-if [[ `isInstalled git` == "1" ]]; then
+if [[ `isInstalled git` ]]; then
 	function parseGitBranch() {
 		git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/';
 	}
