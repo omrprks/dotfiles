@@ -1,4 +1,4 @@
-echo "start .exports"
+# echo "start .exports"
 
 ### Language ###
 export LANG=en_US.UTF-8
@@ -54,4 +54,4 @@ else
 		fi
 	fi
 fi # Homebrew
-echo "end .exports"
+# echo "end .exports"

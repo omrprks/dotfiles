@@ -38,9 +38,9 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && \
 	echo terminal || echo error)" \
 	"$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-if [ -f ~/.functions ]; then . ~/.functions; fi
-if [ -f ~/.aliases ]; then . ~/.aliases; fi
-if [ -f ~/.exports ]; then . ~/.exports; fi
+[ -f ~/.functions ] && . ~/.functions
+[ -f ~/.aliases ] && . ~/.aliases
+[ -f ~/.exports ] && . ~/.exports
 
 force_color_prompt=yes
 

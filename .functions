@@ -1,4 +1,4 @@
-echo "start .functions"
+# echo "start .functions"
 
 function isInstalled() { [[ `which $1 2> /dev/null` ]] && echo 1 || echo 0; }
 
@@ -24,4 +24,4 @@ function battery() {
 	printf "Capacity: %s%%\n" `cat /sys/class/power_supply/battery/capacity`;
 }
 
-echo "end .functions"
+# echo "end .functions"

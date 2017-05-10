@@ -1,9 +1,10 @@
-echo "start .zshrc"
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-export ZSH=$HOME/.oh-my-zsh
+# echo "start .zshrc"
+[ -d $HOME/.oh-my-zsh ] && export ZSH=$HOME/.oh-my-zsh
 
 # ZSH_THEME="powerlevel9k/powerlevel9k"
-ZSH_THEME="materialshell"
+[ -f $ZSH/themes/materialshell.zsh-theme ] && \
+	ZSH_THEME="materialshell" || \
+	ZSH_THEME="refined"
 
 CASE_SENSITIVE="true"
 # HYPHEN_INSENSITIVE="true"
@@ -26,10 +27,10 @@ else
 fi
 
 ### User Config ###
-if [ -f ~/.functions ]; then . ~/.functions; fi
-if [ -f ~/.aliases ]; then . ~/.aliases; fi
-if [ -f ~/.exports ]; then . ~/.exports; fi
-if [ -f ~/.themes ]; then . ~/.themes; fi
+[ -f ~/.functions ] && . ~/.functions
+[ -f ~/.aliases ] && . ~/.aliases
+[ -f ~/.exports ] && . ~/.exports
+[ -f ~/.themes ] && . ~/.themes
 
 LS_COLORS="ow=01;36;40" && export LS_COLORS
-echo "end .zshrc"
+# echo "end .zshrc"

@@ -1,4 +1,4 @@
-echo "start .aliases"
+# echo "start .aliases"
 
 ### Bash ###
 if [[ -n "$BASH_VERSION" ]]; then
@@ -148,4 +148,4 @@ fi
 [[ `isInstalled ruby` = "1" ]] && \
 	alias bex="bundle exec"
 
-echo "end .aliases"
+# echo "end .aliases"
