@@ -10,27 +10,22 @@ export LANG=en_US.UTF-8
 [ -f ~/.ssh/rsa_id ] && export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 ### Editor ###
-export EDITOR="vim"
+[[ `isInstalled vim` = "1" ]] && export EDITOR="vim"
 
-[[ `grep Microsoft /proc/version` ]] && \
-	export DISPLAY="localhost:0.0"
+[[ `grep Microsoft /proc/version` ]] && export DISPLAY="localhost:0.0"
 
 ### Homebrew ###
-if [[ $OSTYPE == "linux-gnu"* ]]; then
-	if [ -d "$HOME/.linuxbrew" ]; then
-		[[ ! `grep $HOME/.linuxbrew/bin <<< $PATH` ]] && \
-			export PATH="$HOME/.linuxbrew/bin:$PATH" && \
-			export PATH="$HOME/.linuxbrew/sbin:$PATH" && \
-			export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH" && \
-			export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
-	fi
-elif [[ $OSTYPE == "darwin" ]]; then
-	[ `isInstalled brew` == "1" ] && \
-		[[ ! `grep /usr/local/bin <<< $PATH` ]] && \
-			export PATH="/usr/local/bin:$PATH"
+if [[ `ls /usr/local/bin/brew 2> /dev/null` ]] || \
+[[ `ls ~/.linuxbrew/bin/brew 2> /dev/null` ]]; then
+	[[ ! `grep /usr/local/bin <<< $PATH` ]] && export PATH="/usr/local/bin:$PATH"
+#	[[ ! `grep /usr/local/sbin <<< $PATH` ]] && export PATH="/usr/local/sbin:$PATH"
+	[[ ! `grep /usr/local/share/man <<< $PATH` ]] && \
+		export MANPATH="/usr/local/share/man:$MANPATH"
+	[[ ! `grep /usr/local/share/info <<< $PATH` ]] && \
+		export INFOPATH="/usr/local/share/info:$INFOPATH"
 fi
 
-if [[ `isInstalled brew` == "1" ]]; then
+if [[ `isInstalled brew` = "1" ]]; then
 	### ZSH ###
 	if [[ -n "$ZSH_VERSION" ]]; then
 		if [[ -d ~/.oh-my-zsh/custom/plugins/zsh-completions/ ]]; then
@@ -40,7 +35,6 @@ if [[ `isInstalled brew` == "1" ]]; then
 				compinit
 			fi
 		fi # zsh-completions
-
 		if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/ ]; then
 			if [ ! -L ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/ ]; then
 				git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting	
@@ -50,12 +44,14 @@ if [[ `isInstalled brew` == "1" ]]; then
 		fi # zsh-syntax-highlighting
 	fi # ZSH
 else
-	if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-		export PATH="$HOME/.linuxbrew/bin:$PATH"	
-	elif [[ "$OSTYPE" == "darwin" ]]; then
-		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	read -p "Homebrew is not installed on this system, would you like to install it now? [y/N] " INPUT
+	if [[ $INPUT = "y" ]]; then
+		if [[ "$OSTYPE" = "darwin"* ]]; then
+			/usr/bin/env ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"	
+		elif [[ "$OSTYPE" = "linux-gnu"* ]]; then
+			/usr/bin/env ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+			export PATH="$HOME/.linuxbrew/bin:$PATH"
+		fi
 	fi
 fi # Homebrew
-
 echo "end .exports"

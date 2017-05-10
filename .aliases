@@ -1,11 +1,12 @@
 echo "start .aliases"
 
+### Bash ###
 if [[ -n "$BASH_VERSION" ]]; then
-	### Bash ###
 	alias reload="source ~/.bash_profile"
 	alias bashconfig="code ~/.bashrc"
+
+### Zsh ###
 elif [[ -n "$ZSH_VERSION" ]]; then
-	### ZSH ###
 	alias reload="source ~/.zshrc"
 	alias zshconfig="code ~/.zshrc"
 	alias ohmyzsh="code ~/.oh-my-zsh"
@@ -13,7 +14,8 @@ else
 	echo "Unknown Shell";
 fi
 
-if [[ $OSTYPE == "linux-gnu"* ]]; then
+### Linux ###
+if [[ $OSTYPE = "linux-gnu"* ]]; then
 	alias upgrade="sudo apt update -y && sudo apt upgrade -y";
 
 	if [[ -x /usr/bin/dircolors ]]; then
@@ -28,8 +30,8 @@ if [[ $OSTYPE == "linux-gnu"* ]]; then
 		alias egrep='egrep --color=auto'
 	fi
 
-	if grep -q Microsoft /proc/version; then
-		### Ubuntu on Windows ###
+	### Windows Subsystem for Linux ###
+	if [[ `grep "Microsoft" /proc/version` ]]; then
 		# Command Line #
 		alias cmdc="cmd.exe /c"
 
@@ -38,16 +40,16 @@ if [[ $OSTYPE == "linux-gnu"* ]]; then
 		# IDE #
 #		alias devenv="$PROGRAMFILESX86/Microsoft\ Visual\ Studio\ 14.0/Common7/IDE/devenv.exe &"
 
-		# Debugger #
-#		alias x64dbg="/mnt/c/x64dbg/x64/x64dbg.exe &"
-
 		# File Explorer #
 		alias e="cmdc explorer.exe"
 		alias e.="e ."
 
+		# EDITOR #
+		alias code="cmdc code"
+
 		# Vagrant #
 #		PATH=/mnt/c/Program\ Files\ \(x86\)/Vagrant/bin:$PATH
-	elif grep -q "Ubuntu" /proc/version; then
+	elif [[ `grep "Ubuntu" /proc/version` ]]; then
 		### Native Linux ###
 		# File Explorer #
 		if [[ `isInstalled nautilus` == "1" ]]; then
@@ -56,12 +58,11 @@ if [[ $OSTYPE == "linux-gnu"* ]]; then
 		fi
 	else
 		echo "Unknown Linux Distro"
+		echo `uname -a`
 	fi
-elif [[ $OSTYPE == "darwin"* ]]; then
+elif [[ $OSTYPE = "darwin"* ]]; then
 	# Aliases #
-	if [[ `brew coreutils` == "1" ]]; then
-		alias find="gfind"
-	fi
+	[[ `brew coreutils` = "1" ]] && alias find="gfind"
 
 	# File Explorer #
 	alias e="open"
@@ -71,9 +72,8 @@ else
 	echo "Unknown OS";
 fi
 
-if [[ `isInstalled brew` == 1 ]]; then
-	alias update="brew update -y"
-fi
+### Homebrew ###
+[[ `isInstalled brew` = "1" ]] && alias update="brew update -y"
 
 # Abbr. #
 alias c="clear"
@@ -104,7 +104,7 @@ alias now='date +"%T %d-%m-%Y"'
 alias now-time='date +"%T"'
 alias now-date='date +"%d-%m-%Y"'
 
-if [[ `isInstalled curl` == "1" ]]; then
+if [[ `isInstalled curl` = "1" ]]; then
 	# IP #
 	alias ip-public="curl http://ipecho.net/plain; echo"
 	alias ip-private="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | \
@@ -127,7 +127,7 @@ alias psg='ps aux | grep -v grep | grep -i -e VSZ -e'
 
 alias histg='history | grep'
 
-if [[ `isInstalled git` == "1" ]]; then
+if [[ `isInstalled git` = "1" ]]; then
 	### Git ###
 	alias gs="git status"
 	alias ga="git add -A"
@@ -141,11 +141,11 @@ if [[ `isInstalled git` == "1" ]]; then
 fi
 
 # Cling #
-[[ `isInstalled cling` == "1" ]] && \
+[[ `isInstalled cling` = "1" ]] && \
 	alias cling="cling --nologo --std=c++1z"
 
 # Ruby #
-[[ `isInstalled ruby` == "1" ]] && \
+[[ `isInstalled ruby` = "1" ]] && \
 	alias bex="bundle exec"
 
 echo "end .aliases"
