@@ -2,7 +2,9 @@
 
 ### Bash ###
 if [[ -n "$BASH_VERSION" ]]; then
-	alias reload="source ~/.bash_profile"
+	[[ -f "~/.bash_profile" ]] && \
+		alias reload="source ~/.bash_profile" || \
+		alias reload="source ~/.bashrc"
 	alias bashconfig="code ~/.bashrc"
 
 ### Zsh ###

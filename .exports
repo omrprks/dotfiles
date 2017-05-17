@@ -44,13 +44,11 @@ if [[ `isInstalled brew` = "1" ]]; then
 		fi # zsh-syntax-highlighting
 	fi # ZSH
 else
-	read -p "Homebrew is not installed on this system, would you like to install it now? [y/N] " INPUT
-	if [[ $INPUT = "y" ]]; then
-		if [[ "$OSTYPE" = "darwin"* ]]; then
+	if [[ "$OSTYPE" = "darwin"* ]]; then
+		read -p "Homebrew is not installed on this system, would you like to install it now? [y/N] " INPUT
+
+		if [[ $INPUT = "y" ]]; then
 			/usr/bin/env ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"	
-		elif [[ "$OSTYPE" = "linux-gnu"* ]]; then
-			/usr/bin/env ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-			export PATH="$HOME/.linuxbrew/bin:$PATH"
 		fi
 	fi
 fi # Homebrew
