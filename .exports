@@ -52,4 +52,7 @@ else
 		fi
 	fi
 fi # Homebrew
+
+[ -d ~/bin ] && export PATH="$HOME/bin:$PATH"
+
 # echo "end .exports"

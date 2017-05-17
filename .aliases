@@ -2,7 +2,7 @@
 
 ### Bash ###
 if [[ -n "$BASH_VERSION" ]]; then
-	[[ -f "~/.bash_profile" ]] && \
+	[ -f ~/.bash_profile ] && \
 		alias reload="source ~/.bash_profile" || \
 		alias reload="source ~/.bashrc"
 	alias bashconfig="code ~/.bashrc"
@@ -75,7 +75,7 @@ else
 fi
 
 ### Homebrew ###
-[[ `isInstalled brew` = "1" ]] && alias update="brew update -y"
+[ `isInstalled brew` = "1" ] && alias update="brew update -y"
 
 # Abbr. #
 alias c="clear"
@@ -97,8 +97,8 @@ alias ....='cd ../../../'
 alias .....='cd ../../../../'
 
 # Overrides #
-if [[ `isInstalled wget` == "1" ]]; then alias wget="wget -c"; fi
-if [[ `isInstalled bc` == "1" ]]; then alias bc="bc -l"; fi
+[ `isInstalled wget` = "1" ] && alias wget="wget -c"
+[ `isInstalled bc` = "1" ] && alias bc="bc -l"
 alias mkdir="mkdir -pv"
 
 # Date & Time #
@@ -143,8 +143,7 @@ if [[ `isInstalled git` = "1" ]]; then
 fi
 
 # Cling #
-[[ `isInstalled cling` = "1" ]] && \
-	alias cling="cling --nologo --std=c++1z"
+[ `isInstalled cling` = "1" ] && alias cling="cling --nologo --std=c++1z"
 
 # Ruby #
 [[ `isInstalled ruby` = "1" ]] && \
