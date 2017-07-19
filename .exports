@@ -54,5 +54,5 @@ else
 fi # Homebrew
 
 [ -d ~/bin ] && export PATH="$HOME/bin:$PATH"
-
+[[ `isInstalled docker` = "1" ]] && export DOCKER_HOST=tcp://0.0.0.0:2375
 # echo "end .exports"
