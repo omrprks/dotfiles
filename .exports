@@ -27,8 +27,8 @@ fi
 
 if [[ `isInstalled brew` = "1" ]]; then
 	### ZSH ###
-	if [[ -n "$ZSH_VERSION" ]]; then
-		if [[ -d ~/.oh-my-zsh/custom/plugins/zsh-completions/ ]]; then
+	if [ -n "$ZSH_VERSION" ]; then
+		if [ -d ~/.oh-my-zsh/custom/plugins/zsh-completions/ ]; then
 			if [ ! -L ~/.oh-my-zsh/custom/plugins/zsh-completions/ ]; then
 				git clone https://gitlab.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
 				autoload -U compinit
@@ -55,4 +55,10 @@ fi # Homebrew
 
 [ -d ~/bin ] && export PATH="$HOME/bin:$PATH"
 [[ `isInstalled docker` = "1" ]] && export DOCKER_HOST=tcp://0.0.0.0:2375
+
+[ -d "$HOME/spells" ] && PATH="$HOME/spells:$PATH"
+
+export PATH="$PATH:$HOME/.rvm/bin"
+[ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
+
 # echo "end .exports"
