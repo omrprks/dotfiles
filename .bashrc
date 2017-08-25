@@ -1,8 +1,8 @@
-cd ~
+# cd ~
 
 case $- in
-	*i*) ;;
-	*) return;;
+ 	*i*) ;;
+ 	*) return;;
 esac
 
 HISTCONTROL=ignoreboth
@@ -56,7 +56,7 @@ if [ "$color_prompt" = yes ]; then
 	# PS1='\
 	# ${debian_chroot:+($debian_chroot)}\
 	# \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-PS1='\
+PS1="\
 \[\033[00;31m\]\u\
 \[\033[00;35m\] at \
 \[\033[00;31m\]\h\
@@ -64,7 +64,7 @@ PS1='\
 \[\033[00;32m\]\w\
 \[\033[00;34m\]$(parseGitBranch)\n\
 \[\033[01;33m\]\$\
-\[\033[00m\] '
+\[\033[00m\] "
 else
 	PS1='${debian_chroot:+($debian_chroot)}\u@\h: \w$(parseGitBranch)\n\$ '
 fi
