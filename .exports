@@ -1,64 +1,8 @@
-# echo "start .exports"
+export HISTSIZE=50000000;
+export HISTFILESIZE=$HISTSIZE;
+export HISTCONTROL=ignoredups;
 
-### Language ###
-export LANG=en_US.UTF-8
+export LANG="en_US.UTF-8";
+export LC_ALL="en_US.UTF-8";
 
-### Compilation Flags ###
-# export ARCHFLAGS="-arch x86_64"
-
-### SSH ###
-[ -f ~/.ssh/rsa_id ] && export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-### Editor ###
-[[ `isInstalled vim` = "1" ]] && export EDITOR="vim"
-
-[[ `grep Microsoft /proc/version` ]] && export DISPLAY="localhost:0.0"
-
-### Homebrew ###
-if [[ `ls /usr/local/bin/brew 2> /dev/null` ]] || \
-[[ `ls ~/.linuxbrew/bin/brew 2> /dev/null` ]]; then
-	[[ ! `grep /usr/local/bin <<< $PATH` ]] && export PATH="/usr/local/bin:$PATH"
-#	[[ ! `grep /usr/local/sbin <<< $PATH` ]] && export PATH="/usr/local/sbin:$PATH"
-	[[ ! `grep /usr/local/share/man <<< $PATH` ]] && \
-		export MANPATH="/usr/local/share/man:$MANPATH"
-	[[ ! `grep /usr/local/share/info <<< $PATH` ]] && \
-		export INFOPATH="/usr/local/share/info:$INFOPATH"
-fi
-
-if [[ `isInstalled brew` = "1" ]]; then
-	### ZSH ###
-	if [ -n "$ZSH_VERSION" ]; then
-		if [ -d ~/.oh-my-zsh/custom/plugins/zsh-completions/ ]; then
-			if [ ! -L ~/.oh-my-zsh/custom/plugins/zsh-completions/ ]; then
-				git clone https://gitlab.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
-				autoload -U compinit
-				compinit
-			fi
-		fi # zsh-completions
-		if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/ ]; then
-			if [ ! -L ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/ ]; then
-				git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting	
-				autoload -U compinit
-				compinit
-			fi
-		fi # zsh-syntax-highlighting
-	fi # ZSH
-else
-	if [[ "$OSTYPE" = "darwin"* ]]; then
-		read -p "Homebrew is not installed on this system, would you like to install it now? [y/N] " INPUT
-
-		if [[ $INPUT = "y" ]]; then
-			/usr/bin/env ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"	
-		fi
-	fi
-fi # Homebrew
-
-[ -d ~/bin ] && export PATH="$HOME/bin:$PATH"
-[[ `isInstalled docker` = "1" ]] && export DOCKER_HOST=tcp://0.0.0.0:2375
-
-[ -d "$HOME/spells" ] && PATH="$HOME/spells:$PATH"
-
-export PATH="$PATH:$HOME/.rvm/bin"
-[ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
-
-# echo "end .exports"
+export NODE_ENV='development'

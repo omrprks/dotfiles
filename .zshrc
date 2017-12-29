@@ -1,7 +1,5 @@
-# echo "start .zshrc"
 [ -d $HOME/.oh-my-zsh ] && export ZSH=$HOME/.oh-my-zsh
 
-# ZSH_THEME="powerlevel9k/powerlevel9k"
 [ -f $ZSH/themes/materialshell.zsh-theme ] && \
 	ZSH_THEME="materialshell" || \
 	ZSH_THEME="refined"
@@ -15,7 +13,7 @@ CASE_SENSITIVE="true"
 # ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="dd/mm/yyyy"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 plugins=(zsh-syntax-highlighting)
 
@@ -33,4 +31,5 @@ fi
 [ -f ~/.themes ] && . ~/.themes
 
 LS_COLORS="ow=01;36;40" && export LS_COLORS
-# echo "end .zshrc"
+
+cd ~

@@ -1,5 +1,3 @@
-# echo "start .functions"
-
 function isInstalled() { [[ `which $1 2> /dev/null` ]] && echo 1 || echo 0; }
 
 function history%() {
@@ -23,5 +21,3 @@ function battery() {
 	cat /sys/class/power_supply/battery/status;
 	printf "Capacity: %s%%\n" `cat /sys/class/power_supply/battery/capacity`;
 }
-
-# echo "end .functions"

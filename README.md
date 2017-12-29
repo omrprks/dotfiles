@@ -1,1 +1,1 @@
-# A collection of my dotfiles
+# Just my dotfiles. Nothing special here.
