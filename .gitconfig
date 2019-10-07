@@ -49,7 +49,10 @@
   s = status -s
   c = clone --recursive
   d = !'git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat'
+  l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  patch = add --patch
   tags = tag -l
   branches = branch -a
   remotes = remote -v
   contributors = shortlog --summary --numbered
+  amend = commit --amend --reuse-message=HEAD
