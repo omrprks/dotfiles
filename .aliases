@@ -1,3 +1,17 @@
+# Abbr.
+alias c="clear"
+alias r="reset"
+alias h="history"
+alias g="git"
+
+alias l="ls -CF"
+alias lsd=$'echo -n $(ls | grep \'/$\') && echo'
+alias ll="ls -alF"
+alias la='ls -A'
+alias lla='ls -la'
+alias l.='ls -d .*'
+alias lahtr='ls -lahtr'
+
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -8,11 +22,13 @@ alias -- -="cd -"
 alias grep="grep --color=auto "
 alias untar="tar xvf"
 
-alias g="git"
-alias h="history"
-
+# OS Specific
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   alias cwd="pwd | tr -d '\r\n' | xclip -selection clipboard"
+  alias ls='ls --color=auto'
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   alias cwd="pwd | tr -d '\r\n' | pbcopy"
+  alias ls='ls -Gauto'
 fi
+
+[ `isInstalled brew` = "1" ] && alias update="brew update"
