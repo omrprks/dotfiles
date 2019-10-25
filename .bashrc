@@ -15,3 +15,7 @@ if [ -d "/usr/local/opt/nvm" ]; then
   [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && \
     . "/usr/local/opt/nvm/etc/bash_completion"
 fi
+
+if [ -L "/usr/local/opt/php@7.2" ]; then
+  export PATH="/usr/local/opt/php@7.2/sbin:/usr/local/opt/php@7.2/bin:$PATH"
+fi
