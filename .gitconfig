@@ -50,6 +50,7 @@
   c = clone --recursive
   d = !'git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat'
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  stat = l --stat
   patch = add --patch
   tags = tag -l
   branches = branch -a
