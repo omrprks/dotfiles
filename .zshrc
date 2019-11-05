@@ -1,35 +1,24 @@
-[ -d $HOME/.oh-my-zsh ] && export ZSH=$HOME/.oh-my-zsh
+autoload -U compinit
+compinit -u
 
-[ -f $ZSH/themes/materialshell.zsh-theme ] && \
-	ZSH_THEME="materialshell" || \
-	ZSH_THEME="refined"
+HISTFILE=${HOME}/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
 
-CASE_SENSITIVE="true"
-# HYPHEN_INSENSITIVE="true"
-# DISABLE_AUTO_UPDATE="true"
-# export UPDATE_ZSH_DAYS=13
-# DISABLE_LS_COLORS="true"
-# DISABLE_AUTO_TITLE="true"
-# ENABLE_CORRECTION="true"
-COMPLETION_WAITING_DOTS="true"
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-HIST_STAMPS="dd/mm/yyyy"
-# ZSH_CUSTOM=/path/to/new-custom-folder
-plugins=(zsh-syntax-highlighting)
+[[ -r "${HOME}/.functions" ]] && . "${HOME}/.functions"
+[[ -r "${HOME}/.exports" ]] && . "${HOME}/.exports"
+[[ -r "${HOME}/.aliases" ]] && . "${HOME}/.aliases"
 
-# Oh My Zsh #
-if [[ -d $ZSH ]]; then
-	source $ZSH/oh-my-zsh.sh
-else
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+[[ -r "${HOME}/.extras" ]] && . "${HOME}/.extras"
+
+if [ -d "/usr/local/opt/nvm" ]; then
+  export NVM_DIR="${HOME}/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \
+    . "/usr/local/opt/nvm/nvm.sh"
+  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && \
+    . "/usr/local/opt/nvm/etc/bash_completion"
 fi
 
-### User Config ###
-[ -f ~/.functions ] && . ~/.functions
-[ -f ~/.aliases ] && . ~/.aliases
-[ -f ~/.exports ] && . ~/.exports
-[ -f ~/.themes ] && . ~/.themes
-
-LS_COLORS="ow=01;36;40" && export LS_COLORS
-
-cd ~
+if [ -L "/usr/local/opt/php@7.2" ]; then
+  export PATH="/usr/local/opt/php@7.2/sbin:/usr/local/opt/php@7.2/bin:$PATH"
+fi

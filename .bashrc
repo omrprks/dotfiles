@@ -2,6 +2,10 @@ shopt -s nocaseglob
 shopt -s histappend
 shopt -s cdspell
 
+HISTFILE=${HOME}/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
+
 [[ -r "${HOME}/.functions" ]] && . "${HOME}/.functions"
 [[ -r "${HOME}/.exports" ]] && . "${HOME}/.exports"
 [[ -r "${HOME}/.aliases" ]] && . "${HOME}/.aliases"
