@@ -48,7 +48,7 @@
 [alias]
   s = status -s
   cl = clone --recursive
-  d = !'git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat'
+  d = !"${SHELL} -c 'git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat'"
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
   cm = commit -m
   ca = commit -a
