@@ -47,9 +47,11 @@
 
 [alias]
   s = status -s
-  c = clone --recursive
+  cl = clone --recursive
   d = !'git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat'
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  cm = commit -m
+  ca = commit -a
   current = show --stat --oneline HEAD
   stat = l --stat
   patch = add --patch
@@ -58,3 +60,4 @@
   remotes = remote -v
   contributors = shortlog --summary --numbered
   amend = commit --amend --reuse-message=HEAD
+  pushd = push -u origin HEAD
