@@ -52,6 +52,7 @@
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
   cm = commit -m
   ca = commit -a
+  cam = commit -am
   current = show --stat --oneline HEAD
   stat = l --stat
   patch = add --patch
