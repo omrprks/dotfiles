@@ -57,6 +57,7 @@
   stat = l --stat
   patch = add --patch
   tags = tag -l
+  get-tag = !"${SHELL} -c 'git name-rev --tags --name-only $(git rev-parse HEAD)'"
   branches = branch -a
   remotes = remote -v
   contributors = shortlog --summary --numbered
