@@ -34,3 +34,5 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 [ `isInstalled brew` = "1" ] && alias update="brew update"
+
+[ `isInstalled hub` = "1" ] && alias git='hub'
