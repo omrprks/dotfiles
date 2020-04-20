@@ -33,3 +33,4 @@ fi
 if [ -L "/usr/local/opt/openjdk" ]; then
   export PATH="/usr/local/opt/openjdk/bin:$PATH"
 fi
+
