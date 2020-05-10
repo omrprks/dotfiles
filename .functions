@@ -10,6 +10,10 @@ function history%() {
   grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10
 }
 
+function md() {
+  mkdir -p "$@" && cd "$@"
+}
+
 if [[ `isInstalled git` = "1" ]]; then
   function parseGitBranch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
