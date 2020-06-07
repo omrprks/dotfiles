@@ -92,9 +92,7 @@ alias -- -="cd -"
 alias grep="grep --color=auto "
 alias untar="tar xvf"
 
-alias ip='curl -XGET checkip.amazonaws.com'
-
-# OS Specific
+## OS Specific ##
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   alias cwd="pwd | tr -d '\r\n' | xclip -selection clipboard"
   alias ls='ls --color=auto'
