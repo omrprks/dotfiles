@@ -7,6 +7,20 @@ export HISTCONTROL=ignoredups;
 export LANG="en_US.UTF-8";
 export LC_ALL="en_US.UTF-8";
 
+### Language ###
+export LANG=en_US.UTF-8
+
+### Compilation Flags ###
+# export ARCHFLAGS="-arch x86_64"
+
+### SSH ###
+[ -f ~/.ssh/rsa_id ] && export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+### Editor ###
+[[ `isInstalled vim` = "1" ]] && export EDITOR="vim"
+
+[[ `grep Microsoft /proc/version 2>/dev/null` ]] && export DISPLAY="localhost:0.0"
+
 [[ `isInstalled node` = "1" ]] && export NODE_ENV="development"
 [[ `isInstalled vim` = "1" ]] && export EDITOR="vim"
 

@@ -1,3 +1,73 @@
+### Bash ###
+if [[ -n "$BASH_VERSION" ]]; then
+	[ -f ~/.bash_profile ] && \
+		alias reload="source ~/.bash_profile" || \
+		alias reload="source ~/.bashrc"
+	alias bashconfig="code ~/.bashrc"
+
+### Zsh ###
+elif [[ -n "$ZSH_VERSION" ]]; then
+	alias reload="source ~/.zshrc"
+	alias zshconfig="code ~/.zshrc"
+	alias ohmyzsh="code ~/.oh-my-zsh"
+else
+	echo "Unknown Shell";
+fi
+
+### Linux ###
+if [[ $OSTYPE = "linux-gnu"* ]]; then
+	alias upgrade="sudo apt update -y && sudo apt upgrade -y";
+
+	if [[ -x /usr/bin/dircolors ]]; then
+		test -r ~/.dircolors && \
+			eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+		alias ls="ls -GFp --color=auto"
+		alias dir='dir --color=auto'
+		alias vdir='vdir --color=auto'
+
+		alias grep='grep --color=auto'
+		alias fgrep='fgrep --color=auto'
+		alias egrep='egrep --color=auto'
+	fi
+
+	### Windows Subsystem for Linux ###
+	if [[ `grep "Microsoft" /proc/version` 2>/dev/null ]]; then
+		# Command Line #
+		alias cmdc="cmd.exe /c"
+
+		# File Explorer #
+		alias e="cmdc explorer.exe"
+		alias e.="e ."
+
+		# EDITOR #
+		alias code="cmdc code"
+	elif [[ `grep "Ubuntu" /proc/version` 2>/dev/null ]]; then
+		### Native Linux ###
+		# File Explorer #
+		if [[ `isInstalled nautilus` == "1" ]]; then
+			alias e="nautilus"
+			alias e.="nautilus ."
+		fi
+	else
+		echo "Unknown Linux Distro"
+		echo `uname -a`
+	fi
+elif [[ $OSTYPE = "darwin"* ]]; then
+	# File Explorer #
+	alias e="open"
+	alias e.="e ."
+	alias ls="ls -GFp"
+else
+	echo "Unknown OS";
+fi
+
+### Homebrew ###
+[ `isInstalled brew` = "1" ] && alias update="brew update -y"
+
+# Abbr. #
+alias c="clear"
+alias r="reset"
+alias h="history"
 # Abbr.
 alias c="clear"
 alias r="reset"
