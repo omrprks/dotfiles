@@ -17,12 +17,12 @@ export LANG=en_US.UTF-8
 [ -f ~/.ssh/rsa_id ] && export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 ### Editor ###
-[[ `isInstalled vim` = "1" ]] && export EDITOR="vim"
+[ `isInstalled vim` ] && export EDITOR="vim"
+[ `isInstalled code` ] && export VISUAL="code"
 
 [[ `grep Microsoft /proc/version 2>/dev/null` ]] && export DISPLAY="localhost:0.0"
 
-[[ `isInstalled node` = "1" ]] && export NODE_ENV="development"
-[[ `isInstalled vim` = "1" ]] && export EDITOR="vim"
+[ `isInstalled node` ] && export NODE_ENV="development"
 
 [ ! -d "${HOME}/spells" ] && mkdir ${HOME}/spells
 
@@ -48,3 +48,9 @@ if [ -L "/usr/local/opt/openjdk" ]; then
   export PATH="/usr/local/opt/openjdk/bin:$PATH"
 fi
 
+### Docker ###
+[ `isInstalled docker` ] && export DOCKER_HOST=tcp://0.0.0.0:2375
+
+### RVM ###
+export PATH="$PATH:$HOME/.rvm/bin"
+[ -s "$HOME/.rvm/scripts/rvm" ] && \. "$HOME/.rvm/scripts/rvm"
