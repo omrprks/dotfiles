@@ -20,7 +20,10 @@ export LANG=en_US.UTF-8
 [ `isInstalled vim` ] && export EDITOR="vim"
 [ `isInstalled code` ] && export VISUAL="code"
 
-[[ `grep Microsoft /proc/version 2>/dev/null` ]] && export DISPLAY="localhost:0.0"
+[ `grep Microsoft /proc/version 2>/dev/null` ] && {
+  export DISPLAY="localhost:0.0"
+  [ `isInstalled docker` ] && export DOCKER_HOST=tcp://0.0.0.0:2375
+}
 
 [ `isInstalled node` ] && export NODE_ENV="development"
 
@@ -47,9 +50,6 @@ fi
 if [ -L "/usr/local/opt/openjdk" ]; then
   export PATH="/usr/local/opt/openjdk/bin:$PATH"
 fi
-
-### Docker ###
-[ `isInstalled docker` ] && export DOCKER_HOST=tcp://0.0.0.0:2375
 
 ### RVM ###
 export PATH="$PATH:$HOME/.rvm/bin"
