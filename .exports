@@ -54,3 +54,5 @@ fi
 ### RVM ###
 export PATH="$PATH:$HOME/.rvm/bin"
 [ -s "$HOME/.rvm/scripts/rvm" ] && \. "$HOME/.rvm/scripts/rvm"
+
+[ `isInstalled go` ] && export PATH="$PATH:$HOME/go/bin"
