@@ -125,7 +125,6 @@ alias psg='ps aux | grep -v grep | grep -i -e VSZ -e'
 alias histg='history | grep'
 
 if [[ `isInstalled git` ]]; then
-  ### Git ###
   alias gs="git status"
   alias ga="git add -A"
   alias gb="git branch"
@@ -137,10 +136,12 @@ if [[ `isInstalled git` ]]; then
   alias co="git checkout"
 fi
 
-## Cling ##
+if [[ `isInstalled hub` ]]; then
+  alias pull-request="hub sync && hub pull-request --no-edit | xargs open"
+fi
+
 [ `isInstalled cling` ] && alias cling="cling --nologo --std=c++1z"
 
-## Ruby ##
 [ `isInstalled ruby` ] && alias bex="bundle exec"
 
 alias untar="tar xvf"
