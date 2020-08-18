@@ -103,9 +103,8 @@ alias now-time='date +"%T"'
 alias now-date='date +"%d-%m-%Y"'
 
 if [[ `isInstalled curl` ]]; then
-  # IP #
-  alias ip-public="curl http://ipecho.net/plain; echo"
-  alias ip-private="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | \
+  alias ipecho="curl http://ipecho.net/plain; echo"
+  alias ipecho-p="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | \
     grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
 
   alias header="curl -I"
