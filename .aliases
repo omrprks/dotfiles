@@ -70,7 +70,7 @@ else
   echo "Unknown OS";
 fi
 
-# Abbr.
+### Abbr. ###
 alias c="clear"
 alias r="reset"
 alias h="history"
@@ -92,12 +92,12 @@ alias .....='cd ../../../..'
 alias ~='cd ~'
 alias -- -='cd -'
 
-## Overrides ##
+### Overrides ###
 [ `isInstalled wget` ] && alias wget="wget -c"
 [ `isInstalled bc` ] && alias bc="bc -l"
 alias mkdir="mkdir -pv"
 
-## Date & Time ##
+### Date & Time ###
 alias now='date +"%T %d-%m-%Y"'
 alias now-time='date +"%T"'
 alias now-date='date +"%d-%m-%Y"'
@@ -110,7 +110,7 @@ if [[ `isInstalled curl` ]]; then
   alias header="curl -I"
 fi
 
-## Ports ##
+### Ports ###
 alias ports="netstat -lnt | awk 'NR>2{ print $4 }' | \
   grep -E '(0.0.0.0:|:::)' | sed 's/.*://' | sort -n | uniq"
 alias ports-v4="netstat -lnt | awk 'NR>2{ print $4 }' | \
@@ -124,6 +124,7 @@ alias psg='ps aux | grep -v grep | grep -i -e VSZ -e'
 
 alias histg='history | grep'
 
+### Git ###
 if [[ `isInstalled git` ]]; then
   alias gs="git status"
   alias ga="git add -A"
@@ -136,12 +137,14 @@ if [[ `isInstalled git` ]]; then
   alias co="git checkout"
 fi
 
+### Docker ###
+alias drme="docker rm $(docker ps -af status=exited -f status=created -q)"
+
 if [[ `isInstalled hub` ]]; then
   alias pull-request="hub sync && hub pull-request --no-edit | xargs open"
 fi
 
 [ `isInstalled cling` ] && alias cling="cling --nologo --std=c++1z"
-
 [ `isInstalled ruby` ] && alias bex="bundle exec"
 
 alias untar="tar xvf"

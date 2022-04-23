@@ -39,8 +39,11 @@ if [ -d "/usr/local/opt/nvm" ]; then
     . "/usr/local/opt/nvm/etc/bash_completion"
 fi
 
-if [ -L "/usr/local/opt/php@7.2" ]; then
-  export PATH="/usr/local/opt/php@7.2/sbin:/usr/local/opt/php@7.2/bin:$PATH"
+if [ `isInstalled php` ]; then
+  PHP_PATH=$(find /usr/local/opt/php* -type l -d 0 | tail -1)
+  if [ -L ${PHP_PATH} ]; then
+    export PATH="${PHP_PATH}/sbin:${PHP_PATH}/bin:${PATH}"
+  fi
 fi
 
 if [ -L "/usr/local/opt/python@3.8" ]; then
@@ -56,3 +59,5 @@ export PATH="$PATH:$HOME/.rvm/bin"
 [ -s "$HOME/.rvm/scripts/rvm" ] && \. "$HOME/.rvm/scripts/rvm"
 
 [ `isInstalled go` ] && export PATH="$PATH:$HOME/go/bin"
+
+export PATH="${HOME}/Library/Python/3.8/bin:${PATH}"
