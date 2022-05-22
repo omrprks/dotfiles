@@ -148,3 +148,7 @@ fi
 [ `isInstalled ruby` ] && alias bex="bundle exec"
 
 alias untar="tar xvf"
+
+if [[ `isInstalled python3` ]]; then
+  alias python="python3"
+fi

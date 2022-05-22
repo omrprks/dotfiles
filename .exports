@@ -20,24 +20,19 @@ export LANG=en_US.UTF-8
 [ `isInstalled vim` ] && export EDITOR="vim"
 [ `isInstalled code` ] && export VISUAL="code"
 
-[ `grep Microsoft /proc/version 2>/dev/null` ] && {
-  export DISPLAY="localhost:0.0"
-  [ `isInstalled docker` ] && export DOCKER_HOST=tcp://0.0.0.0:2375
-}
+# [ `grep Microsoft /proc/version 2>/dev/null` ] && {
+#   export DISPLAY="localhost:0.0"
+#   [ `isInstalled docker` ] && export DOCKER_HOST=tcp://0.0.0.0:2375
+# }
 
 [ `isInstalled node` ] && export NODE_ENV="development"
 
 [ ! -d "${HOME}/spells" ] && mkdir ${HOME}/spells
 
-export PATH="${HOME}/spells:$PATH"
+export PATH="${HOME}/spells:${HOME}/.local/bin:$PATH"
 
-if [ -d "/usr/local/opt/nvm" ]; then
-  export NVM_DIR="${HOME}/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \
-    . "/usr/local/opt/nvm/nvm.sh"
-  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && \
-    . "/usr/local/opt/nvm/etc/bash_completion"
-fi
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 if [ `isInstalled php` ]; then
   PHP_PATH=$(find /usr/local/opt/php* -type l -d 0 | tail -1)

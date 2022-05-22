@@ -63,9 +63,14 @@
   contributors = shortlog --summary --numbered
   amend = commit --amend --reuse-message=HEAD
   pushd = push -u origin HEAD
+  latest-tag = describe --tags --abbrev=0
+
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+  insteadOf = https://github.com/
+
 [credential]
-	helper = /usr/local/share/gcm-core/git-credential-manager-core
+  helper = /usr/local/share/gcm-core/git-credential-manager-core
+
 [credential "https://dev.azure.com"]
-	useHttpPath = true
+  useHttpPath = true
+
